@@ -39,36 +39,36 @@ export function Navbar({ entranceComplete }: NavbarProps) {
           <div className="flex items-center gap-2">
             {/* Logo pill */}
             <motion.div
-              className={`h-12 px-5 bg-white/15 backdrop-blur-md rounded-[14px] flex items-center gap-2.5 cursor-pointer ${
+              className={`h-12 px-5 bg-aura-surface-container/60 backdrop-blur-md border border-aura-outline-variant/30 rounded-full flex items-center gap-2.5 cursor-pointer shadow-[0_4px_20px_rgba(152,70,35,0.04)] ${
                 menuOpen ? 'hidden md:flex' : 'flex'
               }`}
-              whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.22)' }}
+              whileHover={{ scale: 1.02, backgroundColor: '#fce3da' }}
               whileTap={{ scale: 0.98 }}
             >
-              <ConnectAILabLogo size={18} className="text-white" />
-              <span className="text-[16px] font-medium tracking-tight text-white">
+              <ConnectAILabLogo size={18} className="text-aura-primary" />
+              <span className="text-[16px] font-semibold tracking-tight text-aura-on-surface">
                 {SITE_CONFIG.brandName}
               </span>
             </motion.div>
 
             {/* Expanding menu pill */}
             <motion.div
-              className="h-12 rounded-[14px] bg-white/15 backdrop-blur-md flex items-center overflow-hidden"
+              className="h-12 rounded-full bg-aura-surface-container/60 backdrop-blur-md border border-aura-outline-variant/30 flex items-center overflow-hidden shadow-[0_4px_20px_rgba(152,70,35,0.04)]"
               animate={{ width: menuOpen ? 290 : 48 }}
               transition={{ type: 'spring', stiffness: 350, damping: 28 }}
             >
               {/* Hamburger button */}
               <motion.button
-                className="flex items-center justify-center shrink-0 cursor-pointer"
+                className="flex items-center justify-center shrink-0 cursor-pointer border-none"
                 style={{
                   width: menuOpen ? 36 : 48,
                   height: menuOpen ? 36 : 48,
-                  borderRadius: menuOpen ? 11 : 14,
-                  backgroundColor: menuOpen ? 'rgba(255,255,255,0.1)' : 'transparent',
+                  borderRadius: 9999,
+                  backgroundColor: menuOpen ? '#f6ddd5' : 'transparent',
                   marginLeft: menuOpen ? 6 : 0,
                 }}
                 onClick={() => setMenuOpen(!menuOpen)}
-                whileHover={{ backgroundColor: menuOpen ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.1)' }}
+                whileHover={{ backgroundColor: menuOpen ? '#fce3da' : '#f6ddd5' }}
               >
                 <SquashHamburger isOpen={menuOpen} />
               </motion.button>
@@ -84,7 +84,7 @@ export function Navbar({ entranceComplete }: NavbarProps) {
                     transition={{ duration: 0.25 }}
                   >
                     <button
-                      className="text-[16px] font-normal text-white/85 hover:text-white transition-colors cursor-pointer bg-transparent border-none"
+                      className="text-[15px] font-medium text-aura-on-surface/80 hover:text-aura-primary transition-colors cursor-pointer bg-transparent border-none"
                       onMouseEnter={() => setAboutHovered(true)}
                       onMouseLeave={() => setAboutHovered(false)}
                       onClick={() => scrollTo(window.innerHeight)}
@@ -92,7 +92,7 @@ export function Navbar({ entranceComplete }: NavbarProps) {
                       <ScrambleText text="About" isHovered={aboutHovered} />
                     </button>
                     <button
-                      className="text-[16px] font-normal text-white/85 hover:text-white transition-colors cursor-pointer bg-transparent border-none"
+                      className="text-[15px] font-medium text-aura-on-surface/80 hover:text-aura-primary transition-colors cursor-pointer bg-transparent border-none"
                       onMouseEnter={() => setMetricsHovered(true)}
                       onMouseLeave={() => setMetricsHovered(false)}
                       onClick={() => scrollTo(window.innerHeight * 2)}
@@ -110,7 +110,7 @@ export function Navbar({ entranceComplete }: NavbarProps) {
             {/* Sign In / User button */}
             {user ? (
               <div className="flex items-center gap-2">
-                <div className="h-12 px-5 bg-white/10 backdrop-blur-md rounded-[14px] flex items-center gap-3">
+                <div className="h-12 px-5 bg-aura-surface-container/60 backdrop-blur-md border border-aura-outline-variant/30 rounded-full flex items-center gap-3 shadow-[0_4px_20px_rgba(152,70,35,0.04)]">
                   {user.photoURL ? (
                     <img
                       src={user.photoURL}
@@ -118,16 +118,16 @@ export function Navbar({ entranceComplete }: NavbarProps) {
                       className="w-7 h-7 rounded-full object-cover"
                     />
                   ) : (
-                    <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white text-[12px] font-bold">
+                    <div className="w-7 h-7 rounded-full bg-aura-primary/10 flex items-center justify-center text-aura-primary text-[12px] font-bold">
                       {(user.displayName?.[0] || user.email?.[0] || 'U').toUpperCase()}
                     </div>
                   )}
-                  <span className="text-[14px] text-white/80 max-w-[120px] truncate">
+                  <span className="text-[14px] text-aura-on-surface/90 font-medium max-w-[120px] truncate">
                     {user.displayName || user.email?.split('@')[0] || 'User'}
                   </span>
                   <button
                     onClick={signOut}
-                    className="text-[12px] text-white/40 hover:text-white/80 transition-colors cursor-pointer bg-transparent border-none ml-1"
+                    className="text-[12px] text-aura-on-surface/50 hover:text-aura-primary transition-colors cursor-pointer bg-transparent border-none ml-1 font-semibold"
                   >
                     Sign Out
                   </button>
@@ -135,7 +135,7 @@ export function Navbar({ entranceComplete }: NavbarProps) {
               </div>
             ) : (
               <motion.button
-                className="h-12 px-5 bg-white/10 backdrop-blur-md rounded-[14px] flex items-center gap-2 cursor-pointer border-none text-white/85 text-[15px] font-medium hover:bg-white/20 transition-colors"
+                className="h-12 px-5 bg-aura-surface-container/60 backdrop-blur-md border border-aura-outline-variant/30 rounded-full flex items-center gap-2 cursor-pointer text-aura-on-surface/95 text-[15px] font-semibold hover:bg-aura-surface-high/70 transition-colors shadow-[0_4px_20px_rgba(152,70,35,0.04)]"
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setAuthOpen(true)}
               >
@@ -145,14 +145,14 @@ export function Navbar({ entranceComplete }: NavbarProps) {
 
             {/* Download button */}
             <motion.button
-              className="h-12 px-6 bg-gradient-to-r from-warmAmber-200 to-roseGold-200 text-stone-900 rounded-full flex items-center gap-2.5 cursor-pointer border-none"
-              whileHover={{ scale: 1.03, filter: 'brightness(1.05)' }}
+              className="h-12 px-6 bg-gradient-to-b from-aura-primary-container to-aura-secondary-container text-white rounded-full flex items-center gap-2.5 cursor-pointer border-none shadow-[0_6px_20px_rgba(152,70,35,0.15)] font-bold text-[15px]"
+              whileHover={{ y: -2, scale: 1.02, boxShadow: '0 8px 24px rgba(152,70,35,0.2)' }}
               whileTap={{ scale: 0.97 }}
               onMouseEnter={() => setDownloadHovered(true)}
               onMouseLeave={() => setDownloadHovered(false)}
             >
-              <i className="bi bi-tools text-stone-900 text-[16px]" />
-              <span className="text-stone-900 text-[16px] font-semibold">
+              <i className="bi bi-tools text-white text-[16px]" />
+              <span className="text-white">
                 <ScrambleText text="공사중" isHovered={downloadHovered} />
               </span>
             </motion.button>
@@ -165,98 +165,93 @@ export function Navbar({ entranceComplete }: NavbarProps) {
           <div className="flex items-center gap-1.5 flex-1 min-w-0">
             {/* Logo pill (collapses when menu open) */}
             <motion.div
-              className="h-9 px-3 bg-white/15 backdrop-blur-md rounded-[10px] flex items-center gap-2 overflow-hidden shrink-0"
+              className="h-9 px-3 bg-aura-surface-container/60 backdrop-blur-md border border-aura-outline-variant/30 rounded-full flex items-center gap-2 overflow-hidden shrink-0"
               animate={{ width: menuOpen ? 0 : 'auto', opacity: menuOpen ? 0 : 1, paddingLeft: menuOpen ? 0 : 12, paddingRight: menuOpen ? 0 : 12 }}
               transition={{ type: 'spring', stiffness: 350, damping: 28 }}
             >
-              <ConnectAILabLogo size={14} className="text-white shrink-0" />
-              <span className="text-[13px] font-medium tracking-tight text-white whitespace-nowrap">
+              <ConnectAILabLogo size={14} className="text-aura-primary shrink-0" />
+              <span className="text-[13px] font-bold tracking-tight text-aura-on-surface whitespace-nowrap">
                 {SITE_CONFIG.brandName}
               </span>
             </motion.div>
 
             {/* Expanding menu capsule */}
             <motion.div
-              className="h-9 rounded-[10px] bg-white/15 backdrop-blur-md flex items-center overflow-hidden"
-              animate={{ width: menuOpen ? '100%' : 36 }}
+              className="h-9 rounded-full bg-aura-surface-container/60 backdrop-blur-md border border-aura-outline-variant/30 flex items-center overflow-hidden"
+              animate={{ width: menuOpen ? '100%' : 44 }}
               transition={{ type: 'spring', stiffness: 350, damping: 28 }}
             >
-              <motion.button
-                className="flex items-center justify-center shrink-0 cursor-pointer"
-                style={{
-                  width: menuOpen ? 30 : 36,
-                  height: menuOpen ? 30 : 36,
-                  borderRadius: menuOpen ? 8 : 10,
-                  backgroundColor: menuOpen ? 'rgba(255,255,255,0.1)' : 'transparent',
-                  marginLeft: menuOpen ? 4 : 0,
-                }}
+              {/* Hamburger Toggle */}
+              <button
+                className="w-9 h-9 flex items-center justify-center shrink-0 cursor-pointer border-none bg-transparent rounded-full"
                 onClick={() => setMenuOpen(!menuOpen)}
               >
                 <SquashHamburger isOpen={menuOpen} isMobile />
-              </motion.button>
+              </button>
 
+              {/* Menu items */}
               <AnimatePresence>
                 {menuOpen && (
                   <motion.div
-                    className="flex items-center gap-4 ml-3 whitespace-nowrap"
+                    className="flex items-center gap-4 ml-2 whitespace-nowrap overflow-x-auto no-scrollbar pr-4"
                     initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 10 }}
-                    transition={{ duration: 0.2 }}
                   >
                     <button
-                      className="text-[13px] font-normal text-white/85 cursor-pointer bg-transparent border-none"
+                      className="text-[13px] font-semibold text-aura-on-surface/85 hover:text-aura-primary transition-colors cursor-pointer bg-transparent border-none"
                       onClick={() => scrollTo(window.innerHeight)}
                     >
                       About
                     </button>
                     <button
-                      className="text-[13px] font-normal text-white/85 cursor-pointer bg-transparent border-none"
+                      className="text-[13px] font-semibold text-aura-on-surface/85 hover:text-aura-primary transition-colors cursor-pointer bg-transparent border-none"
                       onClick={() => scrollTo(window.innerHeight * 2)}
                     >
                       Metrics
                     </button>
+
+                    {/* Mobile user action inside capsule */}
+                    {user ? (
+                      <div className="flex items-center gap-2">
+                        {user.photoURL ? (
+                          <img src={user.photoURL} alt="" className="w-5 h-5 rounded-full object-cover" />
+                        ) : (
+                          <div className="w-5 h-5 rounded-full bg-aura-primary/10 flex items-center justify-center text-aura-primary text-[10px] font-bold">
+                            {(user.displayName?.[0] || user.email?.[0] || 'U').toUpperCase()}
+                          </div>
+                        )}
+                        <span className="text-[12px] text-aura-on-surface/90 font-medium truncate max-w-[80px]">
+                          {user.displayName || user.email?.split('@')[0]}
+                        </span>
+                        <button
+                          onClick={signOut}
+                          className="text-[11px] text-aura-on-surface/50 hover:text-aura-primary cursor-pointer bg-transparent border-none font-bold"
+                        >
+                          Sign Out
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        className="text-[13px] font-semibold text-aura-on-surface/85 hover:text-aura-primary cursor-pointer bg-transparent border-none"
+                        onClick={() => setAuthOpen(true)}
+                      >
+                        Sign In
+                      </button>
+                    )}
+
+                    {/* Download button inside capsule */}
+                    <motion.button
+                      className="h-7 px-3 bg-gradient-to-r from-aura-primary-container to-aura-secondary-container text-white rounded-full flex items-center gap-1.5 cursor-pointer border-none shrink-0"
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <i className="bi bi-tools text-white text-[11px]" />
+                      <span className="text-white text-[11px] font-bold">공사중</span>
+                    </motion.button>
                   </motion.div>
                 )}
               </AnimatePresence>
             </motion.div>
-          </div>
-
-          {/* Right buttons */}
-          <div className="flex items-center gap-1.5 ml-2">
-            {/* Sign In / Avatar */}
-            {user ? (
-              <motion.button
-                className="h-9 w-9 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center cursor-pointer border-none overflow-hidden"
-                whileTap={{ scale: 0.9 }}
-                onClick={signOut}
-              >
-                {user.photoURL ? (
-                  <img src={user.photoURL} alt="" className="w-full h-full object-cover" />
-                ) : (
-                  <span className="text-white text-[12px] font-bold">
-                    {(user.displayName?.[0] || user.email?.[0] || 'U').toUpperCase()}
-                  </span>
-                )}
-              </motion.button>
-            ) : (
-              <motion.button
-                className="h-9 px-3 bg-white/15 backdrop-blur-md rounded-[10px] flex items-center cursor-pointer border-none text-white/85 text-[12px] font-medium"
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setAuthOpen(true)}
-              >
-                Sign In
-              </motion.button>
-            )}
-
-            {/* Download button */}
-            <motion.button
-              className="h-9 px-3.5 bg-gradient-to-r from-warmAmber-200 to-roseGold-200 text-stone-900 rounded-full flex items-center gap-1.5 cursor-pointer border-none shrink-0"
-              whileTap={{ scale: 0.95 }}
-            >
-              <i className="bi bi-tools text-stone-900 text-[13px]" />
-              <span className="text-stone-900 text-[13px] font-semibold">공사중</span>
-            </motion.button>
           </div>
         </div>
       </motion.nav>

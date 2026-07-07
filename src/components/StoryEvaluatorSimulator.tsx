@@ -84,14 +84,14 @@ export function StoryEvaluatorSimulator() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       {/* ── 왼쪽: 사연 작성 및 옵션 설정 영역 (5/12 크기) ── */}
-      <div className="lg:col-span-5 flex flex-col justify-between bg-white/[0.02] border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-md">
+      <div className="lg:col-span-5 flex flex-col justify-between bg-white border border-aura-outline-variant/30 rounded-2xl p-6 sm:p-8 shadow-[0_10px_35px_rgba(152,70,35,0.02)]">
         <div>
           {/* 회원 등급 선택 탭 */}
           <div className="mb-6">
-            <span className="text-[12px] text-white/40 tracking-wider block mb-3 font-medium uppercase">
+            <span className="text-[12px] text-aura-on-surface-variant font-bold tracking-wider block mb-3 uppercase">
               membership tier
             </span>
-            <div className="grid grid-cols-3 gap-2 bg-white/[0.04] p-1 rounded-lg border border-white/5">
+            <div className="grid grid-cols-3 gap-2 bg-[#F5F0EA] p-1 rounded-lg border border-aura-outline-variant/50">
               {[
                 { key: 'free', label: '무료 회원', sub: '기본 이미지' },
                 { key: 'basic', label: '베이직', sub: '사연 반영 이미지' },
@@ -107,8 +107,8 @@ export function StoryEvaluatorSimulator() {
                   }}
                   className={`py-2.5 px-2 rounded-md transition-all border-none cursor-pointer text-center flex flex-col items-center justify-center ${
                     membership === tier.key
-                      ? 'bg-gradient-to-r from-warmAmber-200 to-roseGold-200 text-stone-900 font-semibold shadow-lg scale-[1.02]'
-                      : 'bg-transparent text-white/50 hover:text-white hover:bg-white/5'
+                      ? 'bg-gradient-to-r from-aura-primary-container to-aura-secondary-container text-aura-on-primary-container font-bold shadow-sm scale-[1.02]'
+                      : 'bg-transparent text-aura-on-surface-variant/60 hover:text-aura-on-surface hover:bg-aura-surface-container/30'
                   }`}
                 >
                   <span className="text-[13px]">{tier.label}</span>
@@ -120,7 +120,7 @@ export function StoryEvaluatorSimulator() {
 
           {/* 사연 입력 칸 */}
           <div className="mb-6">
-            <label className="text-[12px] text-white/40 tracking-wider block mb-3 font-medium uppercase">
+            <label className="text-[12px] text-aura-on-surface-variant font-bold tracking-wider block mb-3 uppercase">
               Write Story
             </label>
             <textarea
@@ -128,9 +128,9 @@ export function StoryEvaluatorSimulator() {
               onChange={(e) => setStory(e.target.value)}
               placeholder="여기에 평가할 사연을 자유롭게 입력해 주세요. (예: 어제 아파트 복도에서 이웃의 짐을 대신 들어주었습니다.)"
               rows={6}
-              className="w-full bg-white/[0.03] border border-white/10 rounded-xl p-4 text-white text-[14px] leading-relaxed placeholder-white/20 focus:outline-none focus:border-roseGold-400/60 resize-none transition-colors"
+              className="w-full bg-[#F5F0EA] border border-aura-outline-variant/60 rounded-xl p-4 text-aura-on-surface text-[14px] leading-relaxed placeholder-aura-on-surface-variant/30 focus:outline-none focus:border-aura-primary/80 resize-none transition-colors shadow-inner"
             />
-            <div className="flex justify-between items-center mt-2 text-[12px] text-white/30">
+            <div className="flex justify-between items-center mt-2 text-[12px] text-aura-on-surface-variant/50">
               <span>* 긍정적인 단어가 들어가면 칭찬으로 판별됩니다.</span>
               <span>{story.length} 자 입력됨</span>
             </div>
@@ -141,15 +141,15 @@ export function StoryEvaluatorSimulator() {
         <button
           onClick={handleEvaluate}
           disabled={isEvaluating}
-          className={`w-full py-4 rounded-xl text-[15px] font-bold tracking-wide flex items-center justify-center gap-2 border-none transition-all cursor-pointer ${
+          className={`w-full py-4 rounded-full text-[15px] font-bold tracking-wide flex items-center justify-center gap-2 border-none transition-all cursor-pointer shadow-md ${
             isEvaluating
-              ? 'bg-white/10 text-white/30 cursor-wait'
-              : 'bg-gradient-to-r from-warmAmber-200 to-roseGold-200 text-stone-900 hover:brightness-105 active:scale-[0.99]'
+              ? 'bg-aura-surface-container text-aura-on-surface-variant/40 cursor-wait'
+              : 'bg-gradient-to-r from-aura-primary to-aura-primary-container text-white hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0'
           }`}
         >
           {isEvaluating ? (
             <>
-              <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
+              <svg className="animate-spin h-5 w-5 text-aura-primary" viewBox="0 0 24 24" fill="none">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
               </svg>
@@ -157,7 +157,7 @@ export function StoryEvaluatorSimulator() {
             </>
           ) : (
             <>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-stone-900">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-white">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7 h2v2z"/>
               </svg>
               <span>AI 판별 파이프라인 가동</span>
@@ -167,10 +167,10 @@ export function StoryEvaluatorSimulator() {
       </div>
 
       {/* ── 오른쪽: 판별 결과 모니터 및 결과 미디어 영역 (7/12 크기) ── */}
-      <div className="lg:col-span-7 flex flex-col justify-between bg-white/[0.01] border border-white/5 rounded-2xl p-6 sm:p-8 backdrop-blur-sm relative overflow-hidden">
+      <div className="lg:col-span-7 flex flex-col justify-between bg-white border border-aura-outline-variant/30 rounded-2xl p-6 sm:p-8 shadow-[0_10px_35px_rgba(152,70,35,0.02)] relative overflow-hidden">
         {/* 가치 평가 모니터 데코레이터 */}
-        <div className="absolute top-4 right-4 flex items-center gap-2 text-[10px] text-white/30 tracking-widest font-mono uppercase bg-black/40 px-3 py-1.5 rounded-full border border-white/5">
-          <span className="w-1.5 h-1.5 rounded-full bg-warmAmber-400 animate-pulse" />
+        <div className="absolute top-4 right-4 flex items-center gap-2 text-[10px] text-aura-primary tracking-widest font-mono uppercase bg-aura-surface-low px-3 py-1.5 rounded-full border border-aura-outline">
+          <span className="w-1.5 h-1.5 rounded-full bg-aura-primary animate-pulse" />
           SYSTEM LIVE
         </div>
 
@@ -184,11 +184,11 @@ export function StoryEvaluatorSimulator() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 className="text-center p-8 max-w-sm"
               >
-                <div className="w-16 h-16 rounded-full bg-white/[0.04] flex items-center justify-center mb-6 mx-auto border border-white/10 text-white/30">
+                <div className="w-16 h-16 rounded-full bg-aura-surface-low flex items-center justify-center mb-6 mx-auto border border-aura-outline text-aura-primary">
                   ⚡
                 </div>
-                <h4 className="text-white text-base font-semibold mb-2">실시간 판별 결과창</h4>
-                <p className="text-white/40 text-[13px] leading-relaxed">
+                <h4 className="text-aura-on-surface text-base font-bold mb-2">실시간 판별 결과창</h4>
+                <p className="text-aura-on-surface-variant text-[13px] leading-relaxed">
                   왼쪽 창에서 사연을 작성하고 회원 등급을 선택한 뒤 **AI 판별 파이프라인 가동** 버튼을 눌러주세요.
                 </p>
               </motion.div>
@@ -204,14 +204,14 @@ export function StoryEvaluatorSimulator() {
               >
                 <div className="relative w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                   {/* 회전하는 이펙트 링 */}
-                  <div className="absolute inset-0 rounded-full border-t-2 border-r-2 border-roseGold-400 animate-spin" />
-                  <div className="absolute inset-2 rounded-full border-b-2 border-l-2 border-warmAmber-400 animate-spin [animation-duration:1.5s]" />
+                  <div className="absolute inset-0 rounded-full border-t-2 border-r-2 border-aura-primary animate-spin" />
+                  <div className="absolute inset-2 rounded-full border-b-2 border-l-2 border-aura-primary-container animate-spin [animation-duration:1.5s]" />
                   <span className="text-[20px]">🔮</span>
                 </div>
-                <h4 className="text-roseGold-400 text-sm font-semibold tracking-wider uppercase animate-pulse">
+                <h4 className="text-aura-primary text-sm font-bold tracking-wider uppercase animate-pulse">
                   AI DECISION MAKING
                 </h4>
-                <p className="text-white/40 text-[12px] mt-2">문맥 파싱 및 요금제 렌더러 호출 중...</p>
+                <p className="text-aura-on-surface-variant text-[12px] mt-2">문맥 파싱 및 요금제 렌더러 호출 중...</p>
               </motion.div>
             )}
 
@@ -227,18 +227,18 @@ export function StoryEvaluatorSimulator() {
                 <div className="mb-6 flex items-center gap-3">
                   <div className={`px-4 py-1.5 rounded-full text-[12px] font-bold tracking-wider ${
                     evaluationResult === 'GOOD'
-                      ? 'bg-warmAmber-500/10 text-warmAmber-300 border border-warmAmber-500/20'
-                      : 'bg-roseGold-500/10 text-roseGold-300 border border-roseGold-500/20'
+                      ? 'bg-aura-primary/10 text-aura-primary border border-aura-primary/20'
+                      : 'bg-aura-secondary/15 text-aura-secondary border border-aura-secondary/20'
                   }`}>
                     {evaluationResult === 'GOOD' ? '👏 칭찬합시다 (GOOD)' : '⚠️ 혼내줍시다 (NO GOOD)'}
                   </div>
-                  <div className="px-3 py-1 rounded bg-white/5 border border-white/10 text-white/50 text-[11px] font-mono">
+                  <div className="px-3 py-1 rounded bg-aura-surface-container border border-aura-outline-variant/60 text-aura-on-surface-variant text-[11px] font-mono">
                     {membership.toUpperCase()} MEMBER
                   </div>
                 </div>
 
                 {/* 2) 렌더링된 메인 미디어 프레임 */}
-                <div className="relative w-full max-w-lg aspect-video rounded-xl overflow-hidden bg-black/60 border border-white/10 shadow-2xl">
+                <div className="relative w-full max-w-lg aspect-video rounded-xl overflow-hidden bg-aura-surface-low border border-aura-outline-variant/40 shadow-2xl">
                   {generatedMediaUrl && (
                     membership === 'express' ? (
                       // 동영상 출력 (익스프레스 회원 전용)
@@ -269,14 +269,14 @@ export function StoryEvaluatorSimulator() {
                 </div>
 
                 {/* 3) 기술적 매핑 정보 표기 */}
-                <div className="mt-6 w-full max-w-lg text-center bg-white/[0.02] border border-white/5 p-4 rounded-xl">
-                  <div className="text-[12px] text-white/30 uppercase tracking-widest font-mono">
+                <div className="mt-6 w-full max-w-lg text-center bg-aura-surface-low/85 border border-aura-outline-variant/35 p-4 rounded-xl shadow-inner">
+                  <div className="text-[12px] text-aura-primary uppercase tracking-widest font-mono font-bold">
                     output report
                   </div>
-                  <div className="text-white text-[14px] font-semibold mt-1">
+                  <div className="text-aura-on-surface text-[14px] font-bold mt-1">
                     {generatedKeyword}
                   </div>
-                  <p className="text-white/40 text-[12px] mt-1.5 leading-relaxed">
+                  <p className="text-aura-on-surface-variant text-[12px] mt-1.5 leading-relaxed">
                     {membership === 'free' && '무료 회원은 미리 구축된 기본 매핑 이미지만 노출됩니다. 사연을 더 깊게 투영한 전용 일러스트와 숏폼 무비를 만들고 싶다면 베이직/익스프레스 멤버십을 구매해 주세요.'}
                     {membership === 'basic' && '베이직 회원은 문맥을 완벽히 흡수한 3D 생성형 AI 이미지가 독점 제작되어 라이브러리에 누적 보관됩니다.'}
                     {membership === 'express' && '익스프레스 회원은 숏폼 미디어 파이프라인으로 즉시 송출할 수 있는 시네마틱 무비가 최종 랜더링됩니다.'}

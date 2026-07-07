@@ -172,8 +172,8 @@ function PlanCard({ plan, index, user }: {
 
   return (
     <motion.div
-      className={`group relative bg-white/[0.02] backdrop-blur-xl border border-white/5 ${plan.borderHover} transition-all duration-500 rounded-2xl overflow-hidden flex flex-col ${
-        (plan as any).featured ? 'md:scale-[1.03] md:z-10 border-warmAmber-500/35 shadow-[0_0_50px_rgba(217,138,41,0.08)]' : ''
+      className={`group relative bg-white border border-aura-outline-variant/30 transition-all duration-500 rounded-[24px] overflow-hidden flex flex-col shadow-[0_10px_35px_rgba(152,70,35,0.03)] hover:shadow-[0_15px_45px_rgba(152,70,35,0.08)] ${
+        (plan as any).featured ? 'md:scale-[1.03] md:z-10 border-aura-primary/40 shadow-[0_15px_45px_rgba(152,70,35,0.06)]' : ''
       }`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +186,7 @@ function PlanCard({ plan, index, user }: {
       {/* 인기 배지 */}
       {(plan as any).featured && (
         <div className="absolute top-4 right-4">
-          <span className="bg-warmAmber-500/15 border border-warmAmber-500/30 text-warmAmber-400 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+          <span className="bg-aura-primary/10 border border-aura-primary/20 text-aura-primary text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
             Most Popular
           </span>
         </div>
@@ -201,26 +201,26 @@ function PlanCard({ plan, index, user }: {
               {plan.tier}
             </span>
           </div>
-          <h3 className={`text-[20px] font-extrabold ${plan.accentClass}`}>{plan.tierEn}</h3>
-          <p className="text-white/55 text-[13px] leading-snug">{plan.tagline}</p>
+          <h3 className={`text-[20px] font-bold font-serif ${plan.accentClass}`}>{plan.tierEn}</h3>
+          <p className="text-aura-on-surface-variant text-[13px] leading-snug">{plan.tagline}</p>
         </div>
 
         {/* 가격 */}
-        <div className="flex items-baseline gap-2 border-b border-white/5 pb-5">
+        <div className="flex items-baseline gap-2 border-b border-aura-outline-variant/30 pb-5">
           {plan.price === null ? (
-            <span className={`text-[36px] font-extrabold ${plan.accentClass}`}>자유롭게</span>
+            <span className={`text-[32px] font-bold ${plan.accentClass}`}>자유롭게</span>
           ) : (
             <>
-              <span className="text-white text-[36px] font-extrabold tracking-tight">
+              <span className="text-aura-on-surface text-[32px] font-bold tracking-tight">
                 {plan.priceDisplay}
               </span>
-              <span className="text-white/35 text-[13px]">/ {plan.label}</span>
+              <span className="text-aura-on-surface-variant/60 text-[13px]">/ {plan.label}</span>
             </>
           )}
         </div>
 
         {/* 설명 */}
-        <p className="text-white/50 text-[13px] leading-relaxed">{plan.description}</p>
+        <p className="text-aura-on-surface-variant/80 text-[13px] leading-relaxed">{plan.description}</p>
 
         {/* 자유 금액 입력 (후원하기 전용) */}
         {plan.id === 'angel' && (
@@ -283,20 +283,20 @@ export function PricingSection() {
 
   return (
     <PayPalScriptProvider options={paypalOptions}>
-      <section className="relative bg-[#0B0807] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
+      <section className="relative bg-aura-surface py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-aura-outline-variant/30">
         {/* 배경 글로우 */}
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-roseGold-500/5 blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-warmAmber-500/5 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-aura-primary-container/6 blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-aura-secondary-container/6 blur-[120px] pointer-events-none" />
         <div
-          className="absolute inset-0 pointer-events-none opacity-[0.03]"
-          style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }}
+          className="absolute inset-0 pointer-events-none opacity-[0.015]"
+          style={{ backgroundImage: 'radial-gradient(#000000 1px, transparent 1px)', backgroundSize: '24px 24px' }}
         />
 
         <div className="relative z-20 max-w-6xl mx-auto">
           {/* 헤더 */}
           <div className="text-center mb-16 sm:mb-20">
             <motion.p
-              className="text-[12px] sm:text-[13px] tracking-[0.25em] text-roseGold-400 font-semibold uppercase mb-4"
+              className="text-[12px] sm:text-[13px] tracking-[0.25em] text-aura-primary font-semibold uppercase mb-4"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -305,7 +305,7 @@ export function PricingSection() {
               MEMBERSHIP & SUPPORT
             </motion.p>
             <motion.h2
-              className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-none mb-6"
+              className="text-aura-on-surface text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight leading-none mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -314,7 +314,7 @@ export function PricingSection() {
               마음을 전하는 방법을 선택하세요
             </motion.h2>
             <motion.p
-              className="text-white/50 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
+              className="text-aura-on-surface-variant text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}

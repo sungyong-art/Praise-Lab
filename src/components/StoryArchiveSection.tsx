@@ -12,36 +12,36 @@ const THEME_MAP: Record<string, {
   borderColor: string;
 }> = {
   amber: {
-    accentColor: 'text-warmAmber-400',
-    glowColor: 'shadow-warmAmber-500/5 hover:shadow-warmAmber-500/10',
-    bgGlow: 'from-warmAmber-500/40 via-warmAmber-500/10 to-transparent',
-    badgeBg: 'bg-warmAmber-500/10 border-warmAmber-500/20',
-    badgeText: 'text-warmAmber-400',
-    borderColor: 'group-hover:border-warmAmber-500/30',
+    accentColor: 'text-aura-primary',
+    glowColor: 'shadow-[0_8px_30px_rgba(152,70,35,0.03)] hover:shadow-[0_12px_40px_rgba(152,70,35,0.08)]',
+    bgGlow: 'from-aura-primary/30 via-aura-primary/5 to-transparent',
+    badgeBg: 'bg-aura-primary/10 border-aura-primary/20',
+    badgeText: 'text-aura-primary',
+    borderColor: 'group-hover:border-aura-primary/30',
   },
   fuchsia: {
-    accentColor: 'text-roseGold-400',
-    glowColor: 'shadow-roseGold-500/5 hover:shadow-roseGold-500/10',
-    bgGlow: 'from-roseGold-500/40 via-roseGold-500/10 to-transparent',
+    accentColor: 'text-roseGold-500',
+    glowColor: 'shadow-[0_8px_30px_rgba(152,70,35,0.03)] hover:shadow-[0_12px_40px_rgba(152,70,35,0.08)]',
+    bgGlow: 'from-roseGold-500/30 via-roseGold-500/5 to-transparent',
     badgeBg: 'bg-roseGold-500/10 border-roseGold-500/20',
-    badgeText: 'text-roseGold-400',
+    badgeText: 'text-roseGold-500',
     borderColor: 'group-hover:border-roseGold-500/30',
   },
   cyan: {
-    accentColor: 'text-warmAmber-300',
-    glowColor: 'shadow-warmAmber-400/5 hover:shadow-warmAmber-400/10',
-    bgGlow: 'from-warmAmber-400/40 via-warmAmber-400/10 to-transparent',
-    badgeBg: 'bg-warmAmber-400/10 border-warmAmber-400/20',
-    badgeText: 'text-warmAmber-300',
-    borderColor: 'group-hover:border-warmAmber-400/30',
+    accentColor: 'text-warmAmber-500',
+    glowColor: 'shadow-[0_8px_30px_rgba(152,70,35,0.03)] hover:shadow-[0_12px_40px_rgba(152,70,35,0.08)]',
+    bgGlow: 'from-warmAmber-500/30 via-warmAmber-500/5 to-transparent',
+    badgeBg: 'bg-warmAmber-500/10 border-warmAmber-500/20',
+    badgeText: 'text-warmAmber-500',
+    borderColor: 'group-hover:border-warmAmber-500/30',
   },
   rose: {
-    accentColor: 'text-roseGold-300',
-    glowColor: 'shadow-roseGold-400/5 hover:shadow-roseGold-400/10',
-    bgGlow: 'from-roseGold-400/40 via-roseGold-400/10 to-transparent',
-    badgeBg: 'bg-roseGold-400/10 border-roseGold-400/20',
-    badgeText: 'text-roseGold-300',
-    borderColor: 'group-hover:border-roseGold-400/30',
+    accentColor: 'text-aura-secondary',
+    glowColor: 'shadow-[0_8px_30px_rgba(152,70,35,0.03)] hover:shadow-[0_12px_40px_rgba(152,70,35,0.08)]',
+    bgGlow: 'from-aura-secondary/30 via-aura-secondary/5 to-transparent',
+    badgeBg: 'bg-aura-secondary/15 border-aura-secondary/30',
+    badgeText: 'text-aura-secondary',
+    borderColor: 'group-hover:border-aura-secondary/30',
   },
 };
 
@@ -51,10 +51,10 @@ export function StoryArchiveSection() {
   if (!storyArchive) return null;
 
   return (
-    <section className="relative bg-[#140C0A] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
+    <section className="relative bg-aura-surface py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-aura-outline-variant/30">
       {/* 백그라운드 장식용 네온 원형 글로우 */}
-      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full bg-roseGold-500/5 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-warmAmber-500/5 blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full bg-aura-primary-container/6 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-aura-secondary-container/6 blur-[140px] pointer-events-none" />
       
       {/* 도트 그리드 장식 */}
       <div
@@ -69,7 +69,7 @@ export function StoryArchiveSection() {
         {/* 상단 헤더 */}
         <div className="text-center mb-16 sm:mb-20">
           <motion.p
-            className="text-[12px] sm:text-[13px] tracking-[0.25em] text-roseGold-400 font-semibold uppercase mb-4"
+            className="text-[12px] sm:text-[13px] tracking-[0.25em] text-aura-primary font-bold uppercase mb-4"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -78,7 +78,7 @@ export function StoryArchiveSection() {
             {storyArchive.subtitle}
           </motion.p>
           <motion.h2
-            className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-none mb-6"
+            className="text-aura-on-surface text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight leading-none mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
@@ -87,7 +87,7 @@ export function StoryArchiveSection() {
             {storyArchive.title}
           </motion.h2>
           <motion.p
-            className="text-white/50 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
+            className="text-aura-on-surface-variant text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -133,28 +133,28 @@ interface Theme {
   borderColor: string;
 }
 
-function CategoryCard({ category, theme, index }: { category: Category; theme: Theme; index: number }) {
+function CategoryCard({ category, theme, index: cardIndex }: { category: Category; theme: Theme; index: number }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const activeStory = category.stories[activeIndex] || category.stories[0];
 
   return (
     <motion.div
-      className={`group relative bg-white/[0.02] backdrop-blur-xl border border-white/5 hover:border-white/10 rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl ${theme.glowColor}`}
-      initial={{ opacity: 0, y: 40 }}
+      className={`group relative bg-aura-surface border border-aura-outline-variant/30 transition-all duration-500 rounded-[28px] overflow-hidden flex flex-col ${theme.glowColor}`}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: index * 0.15 }}
-      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, delay: cardIndex * 0.15 }}
+      viewport={{ once: true, amount: 0.15 }}
     >
-      {/* 카드 상단 포인트 그라데이션 라인 */}
+      {/* 상단 그라데이션 라인 */}
       <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${theme.bgGlow}`} />
 
       <div className="p-5 sm:p-6 flex flex-col min-h-[580px]">
         {/* 카테고리 헤더 */}
-        <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/5">
+        <div className="flex items-center justify-between mb-6 pb-4 border-b border-aura-outline-variant/30">
           <div className="flex items-center gap-2">
             <span className="text-xl select-none">{category.emoji}</span>
-            <h3 className="text-[16px] sm:text-[17px] font-semibold text-white/90">
+            <h3 className="text-[16px] sm:text-[17px] font-bold text-aura-on-surface">
               {category.title}
             </h3>
           </div>
@@ -164,7 +164,7 @@ function CategoryCard({ category, theme, index }: { category: Category; theme: T
         </div>
 
         {/* 1. 활성화된 사연 메인 뷰 (플레이스홀더 영역) */}
-        <div className="flex-1 flex flex-col bg-black/40 border border-white/5 rounded-xl p-4 mb-6 relative overflow-hidden">
+        <div className="flex-1 flex flex-col bg-aura-surface-low/80 border border-aura-outline-variant/40 rounded-2xl p-4 mb-6 relative overflow-hidden shadow-inner">
           {/* 은은한 네온 글로우 백그라운드 효과 */}
           <div className={`absolute -top-10 -right-10 w-24 h-24 rounded-full bg-current ${theme.accentColor} opacity-5 blur-2xl pointer-events-none`} />
           
@@ -172,15 +172,15 @@ function CategoryCard({ category, theme, index }: { category: Category; theme: T
             <div>
               {/* 말따옴표 장식 */}
               <span className={`text-3xl font-serif leading-none select-none block -mb-2 opacity-35 ${theme.accentColor}`}>“</span>
-              <h4 className="text-[14px] font-bold text-white mb-2 leading-snug break-keep">
+              <h4 className="text-[14px] font-bold text-aura-on-surface mb-2 leading-snug break-keep">
                 {activeStory.title}
               </h4>
-              <p className="text-[12.5px] text-white/60 leading-relaxed font-light break-all whitespace-pre-line">
+              <p className="text-[12.5px] text-aura-on-surface-variant leading-relaxed font-normal break-all whitespace-pre-line">
                 {activeStory.content}
               </p>
             </div>
-            <div className="flex justify-end items-center mt-4 pt-3 border-t border-white/5">
-              <span className="text-[10px] text-white/30 tracking-wider">
+            <div className="flex justify-end items-center mt-4 pt-3 border-t border-aura-outline-variant/30">
+              <span className="text-[10px] text-aura-on-surface-variant/40 tracking-wider">
                 ACTIVE CASE #{activeIndex + 1}
               </span>
             </div>
@@ -189,7 +189,7 @@ function CategoryCard({ category, theme, index }: { category: Category; theme: T
 
         {/* 2. 아코디언 선택 영역 */}
         <div className="flex flex-col gap-2">
-          <p className="text-[10.5px] text-white/40 tracking-wider font-semibold uppercase mb-1 px-1">
+          <p className="text-[10.5px] text-aura-on-surface-variant/60 tracking-wider font-semibold uppercase mb-1 px-1">
             사례 목록
           </p>
           <div className="space-y-1.5">
@@ -200,20 +200,22 @@ function CategoryCard({ category, theme, index }: { category: Category; theme: T
                   key={story.title}
                   className={`border rounded-lg overflow-hidden transition-all duration-300 ${
                     isActive
-                      ? 'border-white/10 bg-white/[0.03]'
-                      : 'border-white/5 bg-transparent hover:bg-white/[0.01]'
+                      ? 'border-aura-outline bg-aura-surface-low shadow-sm'
+                      : 'border-aura-outline-variant/20 bg-transparent hover:bg-aura-surface-container/20'
                   }`}
                 >
                   {/* 아코디언 헤더 버튼 */}
                   <button
                     onClick={() => setActiveIndex(storyIdx)}
-                    className="w-full text-left px-3 py-2 flex items-center justify-between text-white transition-colors duration-200"
+                    className={`w-full text-left px-3 py-2 flex items-center justify-between transition-colors duration-200 border-none bg-transparent cursor-pointer ${
+                      isActive ? 'text-aura-primary font-bold' : 'text-aura-on-surface-variant'
+                    }`}
                   >
-                    <span className={`text-[12px] font-medium truncate pr-2 ${isActive ? theme.badgeText : 'text-white/60 group-hover:text-white/90'}`}>
-                      {storyIdx + 1}. {story.title}
+                    <span className="text-[12px] truncate max-w-[200px] sm:max-w-[240px]">
+                      {story.title}
                     </span>
-                    <span className={`text-[9px] transform transition-transform duration-300 flex-shrink-0 ${isActive ? 'rotate-180 opacity-80' : 'rotate-0 opacity-40'}`}>
-                      ▼
+                    <span className="text-[10px] opacity-40 shrink-0 ml-2">
+                      {isActive ? '●' : '○'}
                     </span>
                   </button>
 

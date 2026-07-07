@@ -145,9 +145,9 @@ function ReviewForm({ onSubmitted }: { onSubmitted: () => void }) {
 
   if (!user) {
     return (
-      <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 text-center">
-        <p className="text-white/40 text-[12.5px]">
-          후기를 작성하려면 <span className="text-roseGold-400 font-semibold">로그인</span>이 필요합니다.
+      <div className="bg-white border border-aura-outline-variant/30 rounded-2xl p-6 text-center shadow-[0_8px_30px_rgba(152,70,35,0.02)]">
+        <p className="text-aura-on-surface-variant text-[12.5px]">
+          후기를 작성하려면 <span className="text-aura-primary font-semibold">로그인</span>이 필요합니다.
         </p>
       </div>
     );
@@ -156,14 +156,14 @@ function ReviewForm({ onSubmitted }: { onSubmitted: () => void }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white/[0.02] border border-white/8 rounded-2xl p-6 flex flex-col gap-4 relative overflow-hidden"
+      className="bg-white border border-aura-outline-variant/40 rounded-2xl p-6 flex flex-col gap-4 relative overflow-hidden shadow-[0_8px_30px_rgba(152,70,35,0.02)]"
     >
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-roseGold-400/40 via-roseGold-400/10 to-transparent" />
-      <h3 className="text-white text-[15px] font-semibold">✍️ 후기 작성하기</h3>
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-aura-primary/40 via-aura-primary/10 to-transparent" />
+      <h3 className="text-aura-on-surface text-[15px] font-bold">✍️ 후기 작성하기</h3>
 
       {/* 별점 선택 */}
       <div className="flex flex-col gap-1.5">
-        <label className="text-white/50 text-[12px] tracking-wider uppercase">
+        <label className="text-aura-on-surface-variant text-[12px] tracking-wider uppercase font-semibold">
           별점 선택
         </label>
         <StarRating rating={rating} interactive onRate={setRating} />
@@ -171,7 +171,7 @@ function ReviewForm({ onSubmitted }: { onSubmitted: () => void }) {
 
       {/* 내용 입력 */}
       <div className="flex flex-col gap-1.5">
-        <label className="text-white/50 text-[12px] tracking-wider uppercase">
+        <label className="text-aura-on-surface-variant text-[12px] tracking-wider uppercase font-semibold">
           내용
         </label>
         <textarea
@@ -180,13 +180,13 @@ function ReviewForm({ onSubmitted }: { onSubmitted: () => void }) {
           rows={3}
           maxLength={400}
           placeholder="서비스 경험을 자유롭게 남겨주세요..."
-          className="bg-black/40 border border-white/8 rounded-xl px-4 py-3 text-white/85 text-[13.5px] placeholder-white/25 resize-none focus:outline-none focus:border-roseGold-400/60 transition-colors leading-relaxed"
+          className="bg-[#F5F0EA] border border-aura-outline-variant/60 rounded-xl px-4 py-3 text-aura-on-surface text-[13.5px] placeholder-aura-on-surface-variant/30 resize-none focus:outline-none focus:border-aura-primary/80 transition-colors leading-relaxed shadow-inner"
         />
-        <span className="text-white/25 text-[11px] text-right">{content.length}/400</span>
+        <span className="text-aura-on-surface-variant/50 text-[11px] text-right">{content.length}/400</span>
       </div>
 
       {error && (
-        <p className="text-rose-400 text-[12.5px] bg-rose-500/10 border border-rose-500/20 rounded-lg px-3 py-2">
+        <p className="text-rose-600 text-[12.5px] bg-rose-500/10 border border-rose-500/20 rounded-lg px-3 py-2">
           {error}
         </p>
       )}
@@ -194,7 +194,7 @@ function ReviewForm({ onSubmitted }: { onSubmitted: () => void }) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full h-[44px] rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/20 hover:border-cyan-500/40 text-cyan-400 font-semibold text-[13.5px] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="w-full h-[44px] rounded-full bg-gradient-to-b from-aura-primary to-aura-primary-container text-white font-bold text-[13.5px] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 border-none shadow-md hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
       >
         {loading ? (
           <span className="animate-pulse">저장 중...</span>
@@ -221,29 +221,29 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.06 }}
-      className="group relative bg-white/[0.02] hover:bg-white/[0.035] border border-white/5 hover:border-white/10 rounded-2xl p-5 flex flex-col gap-3 transition-all duration-400 overflow-hidden"
+      className="group relative bg-white/80 hover:bg-white border border-aura-outline-variant/30 hover:border-aura-outline rounded-2xl p-5 flex flex-col gap-3 transition-all duration-400 overflow-hidden shadow-[0_8px_30px_rgba(152,70,35,0.02)]"
     >
       {/* 카드 상단 라이팅 */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-roseGold-400/30 via-roseGold-400/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-aura-primary/30 via-aura-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* 헤더: 아이디 + 날짜 */}
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-warmAmber-500/30 to-roseGold-500/30 border border-white/10 flex items-center justify-center text-[11px] font-bold text-white/70 uppercase">
+          <div className="w-7 h-7 rounded-full bg-aura-primary-container/20 border border-aura-outline-variant/20 flex items-center justify-center text-[11px] font-bold text-aura-on-primary-container uppercase">
             {review.displayName?.charAt(0) ?? 'U'}
           </div>
-          <span className="text-white/75 text-[13px] font-semibold">
+          <span className="text-aura-on-surface text-[13px] font-bold">
             {review.displayName}
           </span>
         </div>
-        <span className="text-white/25 text-[10.5px] whitespace-nowrap">{createdAt}</span>
+        <span className="text-aura-on-surface-variant/40 text-[10.5px] whitespace-nowrap">{createdAt}</span>
       </div>
 
       {/* 별점 */}
       <StarRating rating={review.rating} />
 
       {/* 후기 내용 */}
-      <p className="text-white/60 text-[13px] leading-relaxed break-keep">
+      <p className="text-aura-on-surface-variant text-[13.0px] leading-relaxed break-keep">
         {review.content}
       </p>
     </motion.div>
@@ -280,21 +280,21 @@ export function ReviewSection() {
       : 0;
 
   return (
-    <section className="relative bg-[#1A110E] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
+    <section className="relative bg-aura-surface py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-aura-outline-variant/30">
       {/* 배경 글로우 */}
-      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-warmAmber-500/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/3 left-1/5 w-[400px] h-[400px] rounded-full bg-roseGold-500/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-aura-primary-container/6 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/3 left-1/5 w-[400px] h-[400px] rounded-full bg-aura-secondary-container/6 blur-[120px] pointer-events-none" />
       {/* 도트 그리드 */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }}
+        className="absolute inset-0 pointer-events-none opacity-[0.015]"
+        style={{ backgroundImage: 'radial-gradient(#000000 1px, transparent 1px)', backgroundSize: '24px 24px' }}
       />
 
       <div className="relative z-20 max-w-6xl mx-auto">
         {/* 헤더 */}
         <div className="text-center mb-14 sm:mb-16">
           <motion.p
-            className="text-[12px] sm:text-[13px] tracking-[0.25em] text-roseGold-400 font-semibold uppercase mb-4"
+            className="text-[12px] sm:text-[13px] tracking-[0.25em] text-aura-primary font-bold uppercase mb-4"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -303,7 +303,7 @@ export function ReviewSection() {
             USER REVIEWS
           </motion.p>
           <motion.h2
-            className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-none mb-4"
+            className="text-aura-on-surface text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight leading-none mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
@@ -322,8 +322,8 @@ export function ReviewSection() {
               viewport={{ once: true }}
             >
               <StarRating rating={Math.round(avgRating)} />
-              <span className="text-warmAmber-400 text-[22px] font-extrabold">{avgRating}</span>
-              <span className="text-white/40 text-[13px]">/ 5 · {reviews.length}건 후기</span>
+              <span className="text-aura-primary text-[22px] font-bold">{avgRating}</span>
+              <span className="text-aura-on-surface-variant/60 text-[13px]">/ 5 · {reviews.length}건 후기</span>
             </motion.div>
           )}
         </div>

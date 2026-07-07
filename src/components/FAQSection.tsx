@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // ── FAQ 데이터 ──
+// ── FAQ 데이터 ──
 const FAQ_ITEMS = [
   {
     category: '서비스 소개',
     emoji: '✨',
-    color: 'cyan',
-    accentClass: 'text-cyan-400',
-    badgeBg: 'bg-cyan-500/10 border-cyan-500/20 text-cyan-400',
+    color: 'orange',
+    accentClass: 'text-aura-primary',
+    badgeBg: 'bg-aura-primary/10 border-aura-primary/20 text-aura-primary',
     questions: [
       {
         q: '칭찬연구소는 어떤 서비스인가요?',
@@ -27,9 +28,9 @@ const FAQ_ITEMS = [
   {
     category: '멤버십 & 결제',
     emoji: '💳',
-    color: 'fuchsia',
-    accentClass: 'text-fuchsia-400',
-    badgeBg: 'bg-fuchsia-500/10 border-fuchsia-500/20 text-fuchsia-400',
+    color: 'peach',
+    accentClass: 'text-aura-primary',
+    badgeBg: 'bg-aura-secondary-container/40 border-aura-outline-variant/30 text-aura-on-secondary-container',
     questions: [
       {
         q: '독자, 응원자, 후원하기의 차이가 무엇인가요?',
@@ -52,9 +53,9 @@ const FAQ_ITEMS = [
   {
     category: '후원금 사용',
     emoji: '💚',
-    color: 'emerald',
-    accentClass: 'text-emerald-400',
-    badgeBg: 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400',
+    color: 'brown',
+    accentClass: 'text-aura-secondary',
+    badgeBg: 'bg-aura-secondary/15 border-aura-secondary/30 text-aura-secondary',
     questions: [
       {
         q: '후원금은 어디에 사용되나요?',
@@ -69,9 +70,9 @@ const FAQ_ITEMS = [
   {
     category: '개인정보 & 계정',
     emoji: '🔒',
-    color: 'amber',
-    accentClass: 'text-amber-400',
-    badgeBg: 'bg-amber-500/10 border-amber-500/20 text-amber-400',
+    color: 'dark',
+    accentClass: 'text-aura-on-surface',
+    badgeBg: 'bg-aura-surface-container/60 border-aura-outline-variant/30 text-aura-on-surface',
     questions: [
       {
         q: '회원가입 없이도 이용할 수 있나요?',
@@ -111,26 +112,26 @@ function FaqItem({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.06 }}
       viewport={{ once: true, amount: 0.2 }}
-      className={`border rounded-xl overflow-hidden transition-colors duration-300 ${
+      className={`border rounded-xl overflow-hidden transition-all duration-300 ${
         isOpen
-          ? 'border-white/12 bg-white/[0.025]'
-          : 'border-white/5 bg-white/[0.01] hover:border-white/8 hover:bg-white/[0.02]'
+          ? 'border-aura-outline bg-aura-surface-low shadow-sm'
+          : 'border-aura-outline-variant/30 bg-white/70 hover:border-aura-outline-variant hover:bg-white'
       }`}
     >
       {/* 질문 버튼 */}
       <button
         type="button"
         onClick={onToggle}
-        className="w-full flex items-start justify-between gap-4 px-5 py-4 text-left"
+        className="w-full flex items-start justify-between gap-4 px-5 py-4 text-left border-none bg-transparent cursor-pointer"
       >
-        <span className="text-white/85 text-[14px] sm:text-[14.5px] font-semibold leading-snug">
+        <span className="text-aura-on-surface text-[14.5px] font-bold leading-snug">
           {q}
         </span>
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.25 }}
           className={`flex-shrink-0 text-[18px] leading-none mt-0.5 font-light ${
-            isOpen ? accentClass : 'text-white/30'
+            isOpen ? accentClass : 'text-aura-on-surface/40'
           }`}
         >
           +
@@ -149,11 +150,11 @@ function FaqItem({
             className="overflow-hidden"
           >
             <div className="px-5 pb-5">
-              <div className="border-t border-white/5 pt-4">
+              <div className="border-t border-aura-outline-variant/35 pt-4">
                 {a.split('\n').map((line, i) => (
                   <p
                     key={i}
-                    className="text-white/55 text-[13.5px] leading-relaxed break-keep mb-1.5 last:mb-0"
+                    className="text-aura-on-surface-variant text-[13.5px] leading-relaxed break-keep mb-1.5 last:mb-0"
                   >
                     {line}
                   </p>
@@ -181,7 +182,7 @@ function CategoryCard({
 
   return (
     <motion.div
-      className="relative bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden"
+      className="relative bg-white/90 border border-aura-outline-variant/40 rounded-2xl overflow-hidden shadow-[0_12px_40px_rgba(152,70,35,0.03)]"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: cardIndex * 0.1 }}
@@ -189,14 +190,11 @@ function CategoryCard({
     >
       {/* 카드 상단 라이팅 */}
       <div
-        className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r opacity-70`}
-        style={{
-          backgroundImage: `linear-gradient(to right, var(--accent-from), var(--accent-mid), transparent)`,
-        }}
+        className="absolute top-0 left-0 right-0 h-[3px] bg-aura-primary opacity-60"
       />
 
       {/* 카테고리 헤더 */}
-      <div className="flex items-center gap-3 px-6 py-5 border-b border-white/5">
+      <div className="flex items-center gap-3 px-6 py-5 border-b border-aura-outline-variant/30 bg-aura-surface-container/20">
         <span className="text-[22px]">{item.emoji}</span>
         <div>
           <span className={`text-[11px] font-bold tracking-[0.12em] uppercase px-2.5 py-0.5 rounded-full border ${item.badgeBg}`}>
@@ -226,14 +224,14 @@ function CategoryCard({
 // ── 메인 섹션 ──
 export function FAQSection() {
   return (
-    <section className="relative bg-[#010103] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
+    <section className="relative bg-aura-surface py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-aura-outline-variant/30">
       {/* 배경 글로우 */}
-      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full bg-cyan-500/4 blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-fuchsia-500/4 blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full bg-aura-primary-container/6 blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-aura-secondary-container/6 blur-[140px] pointer-events-none" />
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.025]"
+        className="absolute inset-0 pointer-events-none opacity-[0.015]"
         style={{
-          backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(#000000 1px, transparent 1px)',
           backgroundSize: '24px 24px',
         }}
       />
@@ -242,7 +240,7 @@ export function FAQSection() {
         {/* 헤더 */}
         <div className="text-center mb-16 sm:mb-20">
           <motion.p
-            className="text-[12px] sm:text-[13px] tracking-[0.25em] text-cyan-400 font-semibold uppercase mb-4"
+            className="text-[12px] sm:text-[13px] tracking-[0.25em] text-aura-primary font-semibold uppercase mb-4"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -251,7 +249,7 @@ export function FAQSection() {
             FAQ
           </motion.p>
           <motion.h2
-            className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-none mb-5"
+            className="text-aura-on-surface text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight leading-none mb-5"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
@@ -260,7 +258,7 @@ export function FAQSection() {
             자주 묻는 질문
           </motion.h2>
           <motion.p
-            className="text-white/45 text-sm sm:text-base max-w-xl mx-auto leading-relaxed"
+            className="text-aura-on-surface-variant text-sm sm:text-base max-w-xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -287,12 +285,12 @@ export function FAQSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.3 }}
         >
-          <p className="text-white/35 text-[13.5px] mb-4">
+          <p className="text-aura-on-surface-variant/70 text-[13.5px] mb-4">
             원하는 답변을 찾지 못하셨나요?
           </p>
           <a
             href="mailto:hello@praiselap.com"
-            className="inline-flex items-center gap-2 bg-white/[0.03] hover:bg-white/[0.06] border border-white/8 hover:border-white/15 text-white/70 hover:text-white rounded-xl px-6 py-3 text-[13.5px] font-semibold transition-all duration-300"
+            className="inline-flex items-center gap-2 bg-aura-surface-container/40 hover:bg-aura-surface-container border border-aura-outline-variant text-aura-on-surface-variant hover:text-aura-on-surface rounded-full px-6 py-3 text-[13.5px] font-semibold transition-all duration-300 shadow-sm"
           >
             <span>✉️</span>
             <span>운영팀에 문의하기</span>
