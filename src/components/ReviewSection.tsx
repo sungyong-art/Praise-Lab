@@ -280,7 +280,7 @@ export function ReviewSection() {
       : 0;
 
   return (
-    <section className="relative bg-[#0B0807] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
+    <section className="relative bg-[#1A110E] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
       {/* 배경 글로우 */}
       <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-warmAmber-500/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/3 left-1/5 w-[400px] h-[400px] rounded-full bg-roseGold-500/5 blur-[120px] pointer-events-none" />

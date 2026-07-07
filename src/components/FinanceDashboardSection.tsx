@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, animate } from 'framer-motion';
 import { SITE_CONFIG } from '../config/content';
-import { VIDEO_URLS } from '../config/videos';
 
 // 카운트업 애니메이션 텍스트 컴포넌트
 function CountUpText({ value }: { value: number }) {
@@ -40,20 +39,8 @@ export function FinanceDashboardSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-32 px-4 sm:px-6">
-      {/* 1. 비디오 백그라운드 (메트릭스 섹션과 동일한 영상 활용) */}
-      {VIDEO_URLS.metrics && (
-        <video
-          src={VIDEO_URLS.metrics}
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
-      )}
-
-      {/* 어두운 그라데이션 오버레이 (가독성을 위한 반투명 막) */}
-      <div className="absolute inset-0 bg-black/85 z-10" />
+      {/* 뒷배경 딥 코코아 그레이디언트 적용 */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0B0807] to-[#120B0A] z-10" />
       
       {/* 도트 그리드 장식 */}
       <div

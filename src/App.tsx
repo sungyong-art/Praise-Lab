@@ -53,10 +53,10 @@ export default function App() {
       <Navbar entranceComplete={entranceComplete} />
 
       {/* ════════════════ SECTION 1: HERO ════════════════ */}
-      <section className="relative h-screen h-[100dvh] flex flex-col overflow-hidden bg-gradient-to-b from-[#18110E] via-[#0E0A09] to-[#0B0807]">
+      <section className="relative h-screen h-[100dvh] flex flex-col overflow-hidden bg-gradient-to-b from-[#2B1B17] via-[#19100E] to-[#120B0A]">
         {/* 장식용 네온 원형 글로우 */}
-        <div className="absolute top-10 left-10 w-[500px] h-[500px] rounded-full bg-warmAmber-500/[0.04] blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] rounded-full bg-roseGold-500/[0.04] blur-[150px] pointer-events-none" />
+        <div className="absolute top-10 left-10 w-[500px] h-[500px] rounded-full bg-warmAmber-500/[0.06] blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] rounded-full bg-roseGold-500/[0.06] blur-[150px] pointer-events-none" />
 
         {/* Dot grid overlay */}
         <div
@@ -81,7 +81,7 @@ export default function App() {
               letterSpacing: '-4px',
               opacity: 0.08,
               background:
-                'radial-gradient(circle, rgba(224,168,153,0.1) 0%, rgba(224,168,153,0) 70%)',
+                'radial-gradient(circle, rgba(224,168,153,0.12) 0%, rgba(224,168,153,0) 70%)',
               WebkitBackgroundClip: 'text',
               backgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -162,13 +162,12 @@ export default function App() {
         {/* 장식용 네온 원형 글로우 */}
         <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] rounded-full bg-roseGold-500/[0.04] blur-[140px] pointer-events-none" />
         <div className="absolute bottom-1/4 left-1/4 w-[450px] h-[450px] rounded-full bg-warmAmber-500/[0.04] blur-[140px] pointer-events-none" />
-
         {/* Top gradient overlay */}
         <div
           className="absolute top-0 left-0 right-0 z-10"
           style={{
             height: 180,
-            background: 'linear-gradient(to bottom, #0B0807, transparent)',
+            background: 'linear-gradient(to bottom, #1A110E, transparent)',
           }}
         />
 
@@ -187,7 +186,7 @@ export default function App() {
       </section>
 
       {/* ════════════════ SECTION 3: STORY JUDGEMENT & MEMBERSHIP SIMULATOR ════════════════ */}
-      <section className="relative min-h-screen bg-[#0B0807] py-24 px-6 flex flex-col justify-center items-center overflow-hidden border-t border-b border-white/5">
+      <section className="relative min-h-screen bg-[#1A110E] py-24 px-6 flex flex-col justify-center items-center overflow-hidden border-t border-b border-white/5">
         {/* 장식용 은은한 글로우 라이팅 */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-roseGold-500/5 blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-warmAmber-500/5 blur-[120px] pointer-events-none" />
@@ -227,11 +226,11 @@ export default function App() {
       {/* ════════════════ SECTION 8: FAQ ════════════════ */}
       <FAQSection />
 
-      {/* ════════════════ FOOTER ════════════════ */}
-      <footer className="bg-[#0B0807] overflow-hidden border-t border-white/5">
+      {/* ════════════════ SECTION 9: FOOTER ════════════════ */}
+      <footer className="bg-[#120B0A] overflow-hidden border-t border-white/5">
         <div className="flex flex-col md:flex-row min-h-[400px]">
           {/* Left: Brand Identity Block with Warm Glow */}
-          <div className="md:w-1/2 h-[200px] md:h-auto relative bg-gradient-to-br from-[#18110E] to-[#0B0807] flex items-center justify-center overflow-hidden border-r border-white/5">
+          <div className="md:w-1/2 h-[200px] md:h-auto relative bg-gradient-to-br from-[#1E1310] to-[#120B0A] flex items-center justify-center overflow-hidden border-r border-white/5">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-roseGold-500/[0.04] blur-[100px] pointer-events-none" />
             <div className="absolute top-1/3 left-1/3 w-60 h-60 rounded-full bg-warmAmber-500/[0.03] blur-[80px] pointer-events-none" />
             <span

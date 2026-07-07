@@ -51,7 +51,7 @@ export function StoryArchiveSection() {
   if (!storyArchive) return null;
 
   return (
-    <section className="relative bg-[#0B0807] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
+    <section className="relative bg-[#140C0A] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
       {/* 백그라운드 장식용 네온 원형 글로우 */}
       <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full bg-roseGold-500/5 blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-warmAmber-500/5 blur-[140px] pointer-events-none" />
