@@ -68,7 +68,7 @@ export function FinanceDashboardSection() {
         {/* 상단 헤더 */}
         <div className="text-center mb-16 sm:mb-20">
           <motion.p
-            className="text-[12px] sm:text-[13px] tracking-[0.25em] text-cyan-400 font-semibold uppercase mb-4"
+            className="text-[12px] sm:text-[13px] tracking-[0.25em] text-roseGold-400 font-semibold uppercase mb-4"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -100,17 +100,17 @@ export function FinanceDashboardSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-16 sm:mb-20">
           {/* 누적 후원금액 카드 */}
           <motion.div
-            className="relative bg-white/[0.03] backdrop-blur-xl border border-white/5 hover:border-cyan-500/30 transition-colors duration-500 rounded-2xl p-6 sm:p-8 flex flex-col shadow-2xl group overflow-hidden"
+            className="relative bg-white/[0.03] backdrop-blur-xl border border-white/5 hover:border-roseGold-400/40 transition-colors duration-500 rounded-2xl p-6 sm:p-8 flex flex-col shadow-2xl group overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-cyan-500/40 via-blue-500/10 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-roseGold-400/40 via-roseGold-400/10 to-transparent" />
             <span className="text-white/40 text-[11px] tracking-[0.15em] uppercase mb-4 block font-medium">
               TOTAL SOURCED
             </span>
-            <div className="text-white font-light tracking-tight leading-none text-[36px] sm:text-[42px] mb-2 group-hover:text-cyan-400 transition-colors">
+            <div className="text-white font-light tracking-tight leading-none text-[36px] sm:text-[42px] mb-2 group-hover:text-roseGold-300 transition-colors">
               <CountUpText value={totalSourced} />
             </div>
             <p className="text-white/45 text-[12.5px] leading-relaxed">
@@ -120,17 +120,17 @@ export function FinanceDashboardSection() {
 
           {/* 누적 사용금액 카드 */}
           <motion.div
-            className="relative bg-white/[0.03] backdrop-blur-xl border border-white/5 hover:border-amber-500/30 transition-colors duration-500 rounded-2xl p-6 sm:p-8 flex flex-col shadow-2xl group overflow-hidden"
+            className="relative bg-white/[0.03] backdrop-blur-xl border border-white/5 hover:border-warmAmber-500/40 transition-colors duration-500 rounded-2xl p-6 sm:p-8 flex flex-col shadow-2xl group overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-amber-500/40 via-yellow-500/10 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-warmAmber-500/40 via-warmAmber-500/10 to-transparent" />
             <span className="text-white/40 text-[11px] tracking-[0.15em] uppercase mb-4 block font-medium">
               TOTAL DISBURSED
             </span>
-            <div className="text-white font-light tracking-tight leading-none text-[36px] sm:text-[42px] mb-2 group-hover:text-amber-400 transition-colors">
+            <div className="text-white font-light tracking-tight leading-none text-[36px] sm:text-[42px] mb-2 group-hover:text-warmAmber-400 transition-colors">
               <CountUpText value={totalUsed} />
             </div>
             <p className="text-white/45 text-[12.5px] leading-relaxed">
@@ -140,17 +140,17 @@ export function FinanceDashboardSection() {
 
           {/* 현 후원금액 (가용 잔액) 카드 */}
           <motion.div
-            className="relative bg-white/[0.04] backdrop-blur-2xl border border-white/15 hover:border-emerald-500/40 transition-colors duration-500 rounded-2xl p-6 sm:p-8 flex flex-col shadow-2xl group overflow-hidden"
+            className="relative bg-white/[0.04] backdrop-blur-2xl border border-white/15 hover:border-warmAmber-400/50 transition-colors duration-500 rounded-2xl p-6 sm:p-8 flex flex-col shadow-2xl group overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-emerald-500/50 via-teal-500/20 to-transparent" />
-            <span className="text-emerald-400 text-[11px] tracking-[0.15em] uppercase mb-4 block font-semibold">
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-warmAmber-400/50 via-roseGold-400/20 to-transparent" />
+            <span className="text-warmAmber-400 text-[11px] tracking-[0.15em] uppercase mb-4 block font-semibold">
               CURRENT BALANCE
             </span>
-            <div className="text-emerald-400 font-extrabold tracking-tight leading-none text-[36px] sm:text-[42px] mb-2 drop-shadow-[0_0_12px_rgba(52,211,153,0.3)]">
+            <div className="text-warmAmber-400 font-extrabold tracking-tight leading-none text-[36px] sm:text-[42px] mb-2 drop-shadow-[0_0_12px_rgba(217,138,41,0.3)]">
               <CountUpText value={currentBalance} />
             </div>
             <p className="text-white/50 text-[12.5px] leading-relaxed">
@@ -198,7 +198,7 @@ export function FinanceDashboardSection() {
                   className="bg-white/[0.02] border border-white/5 hover:border-white/10 p-5 rounded-xl flex justify-between items-center transition-all duration-300 relative group overflow-hidden"
                 >
                   {/* 카드 내부 포인트 장식 */}
-                  <div className="absolute top-0 bottom-0 left-0 w-[3px] bg-gradient-to-b from-cyan-500/20 to-transparent group-hover:from-cyan-500/40 transition-colors" />
+                  <div className="absolute top-0 bottom-0 left-0 w-[3px] bg-gradient-to-b from-roseGold-400/20 to-transparent group-hover:from-roseGold-400/50 transition-colors" />
 
                   <div className="flex flex-col gap-1.5 pl-2">
                     <div className="flex items-center gap-2">
@@ -207,10 +207,10 @@ export function FinanceDashboardSection() {
                       </span>
                       <span className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase ${
                         item.category === 'AI 인프라'
-                          ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/10'
+                          ? 'bg-warmAmber-500/10 text-warmAmber-400 border border-warmAmber-500/15'
                           : item.category === '사회 기부'
-                          ? 'bg-fuchsia-500/10 text-fuchsia-400 border border-fuchsia-500/10'
-                          : 'bg-zinc-500/10 text-zinc-400 border border-zinc-500/10'
+                          ? 'bg-roseGold-500/10 text-roseGold-400 border border-roseGold-500/15'
+                          : 'bg-stone-500/10 text-stone-400 border border-stone-500/15'
                       }`}>
                         {item.category}
                       </span>
@@ -227,7 +227,7 @@ export function FinanceDashboardSection() {
                     <span className="text-[10px] text-white/30 tracking-[0.05em] uppercase font-medium">
                       Amount
                     </span>
-                    <span className="text-white text-[16px] sm:text-[18px] font-extrabold group-hover:text-cyan-400 transition-colors">
+                    <span className="text-white text-[16px] sm:text-[18px] font-extrabold group-hover:text-roseGold-300 transition-colors">
                       -{item.amount.toLocaleString()}원
                     </span>
                   </div>

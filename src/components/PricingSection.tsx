@@ -19,12 +19,12 @@ const PLANS = [
     tagline: '따뜻한 사연을 읽고 공감하는 첫 걸음',
     description: '매달 업로드되는 Best/이달의 사연을 가장 먼저 읽고, 칭찬연구소의 소식을 받아보세요.',
     highlights: ['매월 Best 사연 이메일 큐레이션', '사연 댓글 및 공감 반응', 'AI 칭찬 분류 결과 열람', '뉴스레터 우선 수신'],
-    accent: 'cyan',
-    accentClass: 'text-cyan-400',
-    borderHover: 'hover:border-cyan-500/30',
-    glowTop: 'from-cyan-500/40 via-cyan-500/10 to-transparent',
-    badgeBg: 'bg-cyan-500/10 border-cyan-500/20 text-cyan-400',
-    btnBg: 'bg-cyan-500/10 hover:bg-cyan-500/20 border-cyan-500/20 hover:border-cyan-500/40 text-cyan-400',
+    accent: 'roseGold',
+    accentClass: 'text-roseGold-300',
+    borderHover: 'hover:border-roseGold-400/30',
+    glowTop: 'from-roseGold-400/40 via-roseGold-400/10 to-transparent',
+    badgeBg: 'bg-roseGold-400/10 border-roseGold-400/20 text-roseGold-300',
+    btnBg: 'bg-roseGold-400/10 hover:bg-roseGold-400/20 border-roseGold-400/20 hover:border-roseGold-400/40 text-roseGold-300',
     tossProductIndex: 0,
   },
   {
@@ -38,12 +38,12 @@ const PLANS = [
     tagline: '사연 주인공에게 박수를 보내는 응원자',
     description: '사연에 직접 응원 메시지와 칭찬 배지를 남기고, AI가 생성한 사연 이미지를 다운로드 받으세요.',
     highlights: ['독자 플랜 혜택 전체 포함', '사연 주인공에게 칭찬 배지 전달', 'AI 생성 사연 이미지 다운로드', '월간 후원금 집행 내역 우선 열람', '응원자 전용 커뮤니티 채널 입장'],
-    accent: 'fuchsia',
-    accentClass: 'text-fuchsia-400',
-    borderHover: 'hover:border-fuchsia-500/30',
-    glowTop: 'from-fuchsia-500/40 via-fuchsia-500/10 to-transparent',
-    badgeBg: 'bg-fuchsia-500/10 border-fuchsia-500/20 text-fuchsia-400',
-    btnBg: 'bg-fuchsia-500/10 hover:bg-fuchsia-500/20 border-fuchsia-500/20 hover:border-fuchsia-500/40 text-fuchsia-400',
+    accent: 'warmAmber',
+    accentClass: 'text-warmAmber-400',
+    borderHover: 'hover:border-warmAmber-500/45',
+    glowTop: 'from-warmAmber-400/50 via-warmAmber-400/15 to-transparent',
+    badgeBg: 'bg-warmAmber-400/15 border-warmAmber-400/25 text-warmAmber-400',
+    btnBg: 'bg-warmAmber-400/15 hover:bg-warmAmber-400/25 border-warmAmber-400/25 hover:border-warmAmber-400/45 text-warmAmber-400',
     featured: true,
     tossProductIndex: 1,
   },
@@ -58,12 +58,12 @@ const PLANS = [
     tagline: '커피 한 잔으로 전하는 선한 영향력',
     description: '금액 제한 없이 원하는 만큼 마음을 전해주세요. 후원금 전액은 공공 재정 대시보드에 투명하게 공개됩니다.',
     highlights: ['금액 직접 입력 (최소 1,000원)', '후원금 실시간 대시보드 반영', '후원자 명예 리스트 등재', '사회 기부 및 인프라 운영에 투명하게 사용', '토닥토닥 감사 이메일 발송'],
-    accent: 'amber',
-    accentClass: 'text-amber-400',
-    borderHover: 'hover:border-amber-500/30',
-    glowTop: 'from-amber-500/40 via-amber-500/10 to-transparent',
-    badgeBg: 'bg-amber-500/10 border-amber-500/20 text-amber-400',
-    btnBg: 'bg-amber-500/10 hover:bg-amber-500/20 border-amber-500/20 hover:border-amber-500/40 text-amber-400',
+    accent: 'roseGold',
+    accentClass: 'text-roseGold-400',
+    borderHover: 'hover:border-roseGold-500/30',
+    glowTop: 'from-roseGold-500/40 via-roseGold-500/10 to-transparent',
+    badgeBg: 'bg-roseGold-500/10 border-roseGold-500/20 text-roseGold-400',
+    btnBg: 'bg-roseGold-500/10 hover:bg-roseGold-500/20 border-roseGold-500/20 hover:border-roseGold-500/40 text-roseGold-400',
     tossProductIndex: 2,
   },
 ] as const;
@@ -100,7 +100,7 @@ function FreeDonationInput({ onAmountChange }: { onAmountChange: (v: number) => 
             onClick={() => handlePreset(v)}
             className={`px-3 py-1.5 rounded-lg text-[12.5px] font-semibold border transition-all duration-200 ${
               !useCustom && selected === v
-                ? 'bg-amber-500/15 border-amber-500/40 text-amber-400'
+                ? 'bg-warmAmber-500/15 border-warmAmber-500/40 text-warmAmber-400'
                 : 'bg-white/[0.02] border-white/8 text-white/55 hover:text-white/85 hover:border-white/15'
             }`}
           >
@@ -173,7 +173,7 @@ function PlanCard({ plan, index, user }: {
   return (
     <motion.div
       className={`group relative bg-white/[0.02] backdrop-blur-xl border border-white/5 ${plan.borderHover} transition-all duration-500 rounded-2xl overflow-hidden flex flex-col ${
-        (plan as any).featured ? 'md:scale-[1.03] md:z-10 border-fuchsia-500/25 shadow-[0_0_50px_rgba(217,70,239,0.05)]' : ''
+        (plan as any).featured ? 'md:scale-[1.03] md:z-10 border-warmAmber-500/35 shadow-[0_0_50px_rgba(217,138,41,0.08)]' : ''
       }`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +186,7 @@ function PlanCard({ plan, index, user }: {
       {/* 인기 배지 */}
       {(plan as any).featured && (
         <div className="absolute top-4 right-4">
-          <span className="bg-fuchsia-500/15 border border-fuchsia-500/30 text-fuchsia-400 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+          <span className="bg-warmAmber-500/15 border border-warmAmber-500/30 text-warmAmber-400 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
             Most Popular
           </span>
         </div>
@@ -283,10 +283,10 @@ export function PricingSection() {
 
   return (
     <PayPalScriptProvider options={paypalOptions}>
-      <section className="relative bg-[#010103] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
+      <section className="relative bg-[#0B0807] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
         {/* 배경 글로우 */}
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-fuchsia-500/5 blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-amber-500/5 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-roseGold-500/5 blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-warmAmber-500/5 blur-[120px] pointer-events-none" />
         <div
           className="absolute inset-0 pointer-events-none opacity-[0.03]"
           style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }}
@@ -296,7 +296,7 @@ export function PricingSection() {
           {/* 헤더 */}
           <div className="text-center mb-16 sm:mb-20">
             <motion.p
-              className="text-[12px] sm:text-[13px] tracking-[0.25em] text-fuchsia-400 font-semibold uppercase mb-4"
+              className="text-[12px] sm:text-[13px] tracking-[0.25em] text-roseGold-400 font-semibold uppercase mb-4"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}

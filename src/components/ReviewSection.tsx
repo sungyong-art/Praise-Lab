@@ -146,8 +146,8 @@ function ReviewForm({ onSubmitted }: { onSubmitted: () => void }) {
   if (!user) {
     return (
       <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 text-center">
-        <p className="text-white/50 text-[14px]">
-          후기를 작성하려면 <span className="text-cyan-400 font-semibold">로그인</span>이 필요합니다.
+        <p className="text-white/40 text-[12.5px]">
+          후기를 작성하려면 <span className="text-roseGold-400 font-semibold">로그인</span>이 필요합니다.
         </p>
       </div>
     );
@@ -158,7 +158,7 @@ function ReviewForm({ onSubmitted }: { onSubmitted: () => void }) {
       onSubmit={handleSubmit}
       className="bg-white/[0.02] border border-white/8 rounded-2xl p-6 flex flex-col gap-4 relative overflow-hidden"
     >
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500/40 via-cyan-500/10 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-roseGold-400/40 via-roseGold-400/10 to-transparent" />
       <h3 className="text-white text-[15px] font-semibold">✍️ 후기 작성하기</h3>
 
       {/* 별점 선택 */}
@@ -180,7 +180,7 @@ function ReviewForm({ onSubmitted }: { onSubmitted: () => void }) {
           rows={3}
           maxLength={400}
           placeholder="서비스 경험을 자유롭게 남겨주세요..."
-          className="bg-black/40 border border-white/8 rounded-xl px-4 py-3 text-white/85 text-[13.5px] placeholder-white/25 resize-none focus:outline-none focus:border-cyan-500/40 transition-colors leading-relaxed"
+          className="bg-black/40 border border-white/8 rounded-xl px-4 py-3 text-white/85 text-[13.5px] placeholder-white/25 resize-none focus:outline-none focus:border-roseGold-400/60 transition-colors leading-relaxed"
         />
         <span className="text-white/25 text-[11px] text-right">{content.length}/400</span>
       </div>
@@ -224,12 +224,12 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
       className="group relative bg-white/[0.02] hover:bg-white/[0.035] border border-white/5 hover:border-white/10 rounded-2xl p-5 flex flex-col gap-3 transition-all duration-400 overflow-hidden"
     >
       {/* 카드 상단 라이팅 */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-amber-400/30 via-amber-400/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-roseGold-400/30 via-roseGold-400/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* 헤더: 아이디 + 날짜 */}
       <div className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-cyan-500/30 to-fuchsia-500/30 border border-white/10 flex items-center justify-center text-[11px] font-bold text-white/70 uppercase">
+          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-warmAmber-500/30 to-roseGold-500/30 border border-white/10 flex items-center justify-center text-[11px] font-bold text-white/70 uppercase">
             {review.displayName?.charAt(0) ?? 'U'}
           </div>
           <span className="text-white/75 text-[13px] font-semibold">
@@ -280,10 +280,10 @@ export function ReviewSection() {
       : 0;
 
   return (
-    <section className="relative bg-[#010103] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
+    <section className="relative bg-[#0B0807] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
       {/* 배경 글로우 */}
-      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-amber-500/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/3 left-1/5 w-[400px] h-[400px] rounded-full bg-cyan-500/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-warmAmber-500/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/3 left-1/5 w-[400px] h-[400px] rounded-full bg-roseGold-500/5 blur-[120px] pointer-events-none" />
       {/* 도트 그리드 */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
@@ -294,7 +294,7 @@ export function ReviewSection() {
         {/* 헤더 */}
         <div className="text-center mb-14 sm:mb-16">
           <motion.p
-            className="text-[12px] sm:text-[13px] tracking-[0.25em] text-amber-400 font-semibold uppercase mb-4"
+            className="text-[12px] sm:text-[13px] tracking-[0.25em] text-roseGold-400 font-semibold uppercase mb-4"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -322,7 +322,7 @@ export function ReviewSection() {
               viewport={{ once: true }}
             >
               <StarRating rating={Math.round(avgRating)} />
-              <span className="text-amber-400 text-[22px] font-extrabold">{avgRating}</span>
+              <span className="text-warmAmber-400 text-[22px] font-extrabold">{avgRating}</span>
               <span className="text-white/40 text-[13px]">/ 5 · {reviews.length}건 후기</span>
             </motion.div>
           )}

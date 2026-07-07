@@ -107,7 +107,7 @@ export function StoryEvaluatorSimulator() {
                   }}
                   className={`py-2.5 px-2 rounded-md transition-all border-none cursor-pointer text-center flex flex-col items-center justify-center ${
                     membership === tier.key
-                      ? 'bg-white text-black font-semibold shadow-lg scale-[1.02]'
+                      ? 'bg-gradient-to-r from-warmAmber-200 to-roseGold-200 text-stone-900 font-semibold shadow-lg scale-[1.02]'
                       : 'bg-transparent text-white/50 hover:text-white hover:bg-white/5'
                   }`}
                 >
@@ -128,7 +128,7 @@ export function StoryEvaluatorSimulator() {
               onChange={(e) => setStory(e.target.value)}
               placeholder="여기에 평가할 사연을 자유롭게 입력해 주세요. (예: 어제 아파트 복도에서 이웃의 짐을 대신 들어주었습니다.)"
               rows={6}
-              className="w-full bg-white/[0.03] border border-white/10 rounded-xl p-4 text-white text-[14px] leading-relaxed placeholder-white/20 focus:outline-none focus:border-cyan-500/50 resize-none transition-colors"
+              className="w-full bg-white/[0.03] border border-white/10 rounded-xl p-4 text-white text-[14px] leading-relaxed placeholder-white/20 focus:outline-none focus:border-roseGold-400/60 resize-none transition-colors"
             />
             <div className="flex justify-between items-center mt-2 text-[12px] text-white/30">
               <span>* 긍정적인 단어가 들어가면 칭찬으로 판별됩니다.</span>
@@ -144,7 +144,7 @@ export function StoryEvaluatorSimulator() {
           className={`w-full py-4 rounded-xl text-[15px] font-bold tracking-wide flex items-center justify-center gap-2 border-none transition-all cursor-pointer ${
             isEvaluating
               ? 'bg-white/10 text-white/30 cursor-wait'
-              : 'bg-white text-black hover:bg-[#e2e2e6] active:scale-[0.99]'
+              : 'bg-gradient-to-r from-warmAmber-200 to-roseGold-200 text-stone-900 hover:brightness-105 active:scale-[0.99]'
           }`}
         >
           {isEvaluating ? (
@@ -157,7 +157,7 @@ export function StoryEvaluatorSimulator() {
             </>
           ) : (
             <>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-black">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-stone-900">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7 h2v2z"/>
               </svg>
               <span>AI 판별 파이프라인 가동</span>
@@ -170,7 +170,7 @@ export function StoryEvaluatorSimulator() {
       <div className="lg:col-span-7 flex flex-col justify-between bg-white/[0.01] border border-white/5 rounded-2xl p-6 sm:p-8 backdrop-blur-sm relative overflow-hidden">
         {/* 가치 평가 모니터 데코레이터 */}
         <div className="absolute top-4 right-4 flex items-center gap-2 text-[10px] text-white/30 tracking-widest font-mono uppercase bg-black/40 px-3 py-1.5 rounded-full border border-white/5">
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-warmAmber-400 animate-pulse" />
           SYSTEM LIVE
         </div>
 
@@ -204,11 +204,11 @@ export function StoryEvaluatorSimulator() {
               >
                 <div className="relative w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                   {/* 회전하는 이펙트 링 */}
-                  <div className="absolute inset-0 rounded-full border-t-2 border-r-2 border-cyan-400 animate-spin" />
-                  <div className="absolute inset-2 rounded-full border-b-2 border-l-2 border-amber-400 animate-spin [animation-duration:1.5s]" />
+                  <div className="absolute inset-0 rounded-full border-t-2 border-r-2 border-roseGold-400 animate-spin" />
+                  <div className="absolute inset-2 rounded-full border-b-2 border-l-2 border-warmAmber-400 animate-spin [animation-duration:1.5s]" />
                   <span className="text-[20px]">🔮</span>
                 </div>
-                <h4 className="text-cyan-400 text-sm font-semibold tracking-wider uppercase animate-pulse">
+                <h4 className="text-roseGold-400 text-sm font-semibold tracking-wider uppercase animate-pulse">
                   AI DECISION MAKING
                 </h4>
                 <p className="text-white/40 text-[12px] mt-2">문맥 파싱 및 요금제 렌더러 호출 중...</p>
@@ -227,8 +227,8 @@ export function StoryEvaluatorSimulator() {
                 <div className="mb-6 flex items-center gap-3">
                   <div className={`px-4 py-1.5 rounded-full text-[12px] font-bold tracking-wider ${
                     evaluationResult === 'GOOD'
-                      ? 'bg-amber-400/10 text-amber-300 border border-amber-400/20'
-                      : 'bg-cyan-400/10 text-cyan-300 border border-cyan-400/20'
+                      ? 'bg-warmAmber-500/10 text-warmAmber-300 border border-warmAmber-500/20'
+                      : 'bg-roseGold-500/10 text-roseGold-300 border border-roseGold-500/20'
                   }`}>
                     {evaluationResult === 'GOOD' ? '👏 칭찬합시다 (GOOD)' : '⚠️ 혼내줍시다 (NO GOOD)'}
                   </div>

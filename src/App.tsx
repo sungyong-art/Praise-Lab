@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   motion,
   useScroll,
@@ -9,7 +9,6 @@ import {
 import { Navbar } from './components/Navbar';
 import { ScrambleIn } from './components/ScrambleText';
 import { ConnectAILabLogo } from './components/ConnectAILabLogo';
-import { VIDEO_URLS } from './config/videos';
 import { SITE_CONFIG } from './config/content';
 import { StoryEvaluatorSimulator } from './components/StoryEvaluatorSimulator';
 import { StoryArchiveSection } from './components/StoryArchiveSection';
@@ -23,45 +22,11 @@ export default function App() {
 
 
 
-  /* ── Hero video mouse-scrub ── */
-  const heroVideoRef = useRef<HTMLVideoElement>(null);
-  const targetTimeRef = useRef(0);
-  const isSeekingRef = useRef(false);
-
-  const handleSeeked = useCallback(() => {
-    const video = heroVideoRef.current;
-    if (!video) return;
-    isSeekingRef.current = false;
-    if (Math.abs(video.currentTime - targetTimeRef.current) > 0.01) {
-      isSeekingRef.current = true;
-      video.currentTime = targetTimeRef.current;
-    }
-  }, []);
-
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const video = heroVideoRef.current;
-      if (!video || !video.duration) return;
-      const deltaX = e.movementX;
-      const sensitivity = 0.8;
-      const change = (deltaX / window.innerWidth) * video.duration * sensitivity;
-      targetTimeRef.current = Math.max(
-        0,
-        Math.min(video.duration, targetTimeRef.current + change)
-      );
-      if (!isSeekingRef.current) {
-        isSeekingRef.current = true;
-        video.currentTime = targetTimeRef.current;
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  /* ── Entrance delay ── */
-  useEffect(() => {
-    const timer = setTimeout(() => setEntranceComplete(true), 800);
+    // 600ms 후 진입 상태 활성화
+    const timer = setTimeout(() => {
+      setEntranceComplete(true);
+    }, 600);
     return () => clearTimeout(timer);
   }, []);
 
@@ -88,19 +53,10 @@ export default function App() {
       <Navbar entranceComplete={entranceComplete} />
 
       {/* ════════════════ SECTION 1: HERO ════════════════ */}
-      <section className="relative h-screen h-[100dvh] flex flex-col overflow-hidden">
-        {/* Video background (mouse-scrubbed) */}
-        {VIDEO_URLS.hero && (
-          <video
-            ref={heroVideoRef}
-            src={VIDEO_URLS.hero}
-            className="absolute inset-0 w-full h-full object-cover"
-            playsInline
-            muted
-            preload="auto"
-            onSeeked={handleSeeked}
-          />
-        )}
+      <section className="relative h-screen h-[100dvh] flex flex-col overflow-hidden bg-gradient-to-b from-[#18110E] via-[#0E0A09] to-[#0B0807]">
+        {/* 장식용 네온 원형 글로우 */}
+        <div className="absolute top-10 left-10 w-[500px] h-[500px] rounded-full bg-warmAmber-500/[0.04] blur-[150px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] rounded-full bg-roseGold-500/[0.04] blur-[150px] pointer-events-none" />
 
         {/* Dot grid overlay */}
         <div
@@ -108,7 +64,7 @@ export default function App() {
           style={{
             backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
             backgroundSize: '24px 24px',
-            opacity: 0.05,
+            opacity: 0.03,
           }}
         />
 
@@ -123,9 +79,9 @@ export default function App() {
               fontFamily: '"Anton SC", sans-serif',
               fontSize: 'clamp(120px, 30vw, 521px)',
               letterSpacing: '-4px',
-              opacity: 0.1,
+              opacity: 0.08,
               background:
-                'radial-gradient(circle, rgba(142,127,148,0) 0%, #8E7F94 70%)',
+                'radial-gradient(circle, rgba(224,168,153,0.1) 0%, rgba(224,168,153,0) 70%)',
               WebkitBackgroundClip: 'text',
               backgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
@@ -150,10 +106,10 @@ export default function App() {
             {/* Left column */}
             <div className="flex flex-col gap-4">
               <h1
-                className="text-amber-400 font-extrabold leading-[1.05] tracking-[-0.03em]"
+                className="text-warmAmber-400 font-extrabold leading-[1.05] tracking-[-0.03em]"
                 style={{ 
-                  fontSize: 'clamp(36px, 8vw, 84px)',
-                  textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 8px 16px rgba(0,0,0,0.8), 0 0 20px rgba(251,191,36,0.3)'
+                   fontSize: 'clamp(36px, 8vw, 84px)',
+                   textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 8px 16px rgba(0,0,0,0.8), 0 0 20px rgba(217,138,41,0.25)'
                 }}
               >
                 <ScrambleIn text={hero.titleLeft[0]} delay={200} triggered={entranceComplete} />
@@ -182,10 +138,10 @@ export default function App() {
 
             {/* Right heading */}
             <h1
-              className="text-cyan-400 font-extrabold leading-[1.05] tracking-[-0.03em] text-left md:text-right"
+              className="text-roseGold-400 font-extrabold leading-[1.05] tracking-[-0.03em] text-left md:text-right"
               style={{ 
                 fontSize: 'clamp(36px, 8vw, 84px)',
-                textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 8px 16px rgba(0,0,0,0.8), 0 0 20px rgba(34,211,238,0.3)'
+                textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 8px 16px rgba(0,0,0,0.8), 0 0 20px rgba(224,168,153,0.25)'
               }}
             >
               <ScrambleIn text={hero.titleRight[0]} delay={700} triggered={entranceComplete} />
@@ -201,26 +157,18 @@ export default function App() {
       {/* ════════════════ SECTION 2: CINEMATIC TEXT ════════════════ */}
       <section
         ref={section2Ref}
-        className="relative h-screen h-[100dvh] flex items-center justify-center overflow-hidden"
+        className="relative h-screen h-[100dvh] flex items-center justify-center overflow-hidden bg-[#0B0807]"
       >
-        {/* Video background */}
-        {VIDEO_URLS.section2 && (
-          <video
-            src={VIDEO_URLS.section2}
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
-        )}
+        {/* 장식용 네온 원형 글로우 */}
+        <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] rounded-full bg-roseGold-500/[0.04] blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-1/4 left-1/4 w-[450px] h-[450px] rounded-full bg-warmAmber-500/[0.04] blur-[140px] pointer-events-none" />
 
         {/* Top gradient overlay */}
         <div
           className="absolute top-0 left-0 right-0 z-10"
           style={{
             height: 180,
-            background: 'linear-gradient(to bottom, #010103, transparent)',
+            background: 'linear-gradient(to bottom, #0B0807, transparent)',
           }}
         />
 
@@ -239,15 +187,15 @@ export default function App() {
       </section>
 
       {/* ════════════════ SECTION 3: STORY JUDGEMENT & MEMBERSHIP SIMULATOR ════════════════ */}
-      <section className="relative min-h-screen bg-black/90 py-24 px-6 flex flex-col justify-center items-center overflow-hidden border-t border-b border-white/5">
+      <section className="relative min-h-screen bg-[#0B0807] py-24 px-6 flex flex-col justify-center items-center overflow-hidden border-t border-b border-white/5">
         {/* 장식용 은은한 글로우 라이팅 */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-amber-500/10 blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-roseGold-500/5 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-warmAmber-500/5 blur-[120px] pointer-events-none" />
 
         <div className="relative z-20 max-w-6xl w-full mx-auto">
           {/* 타이틀 헤더 */}
           <div className="text-center mb-16">
-            <h2 className="text-[14px] tracking-[0.2em] text-cyan-400 font-semibold uppercase mb-4">
+            <h2 className="text-[14px] tracking-[0.2em] text-roseGold-400 font-semibold uppercase mb-4">
               AI REALTIME GENERATION PIPELINE
             </h2>
             <h3 className="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-none mb-6">
@@ -280,22 +228,18 @@ export default function App() {
       <FAQSection />
 
       {/* ════════════════ FOOTER ════════════════ */}
-      <footer className="bg-black overflow-hidden">
+      <footer className="bg-[#0B0807] overflow-hidden border-t border-white/5">
         <div className="flex flex-col md:flex-row min-h-[400px]">
-          {/* Left: Video */}
-          <div className="md:w-1/2 h-[300px] md:h-auto relative">
-            {VIDEO_URLS.footer ? (
-              <video
-                src={VIDEO_URLS.footer}
-                className="absolute inset-0 w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-            ) : (
-              <div className="absolute inset-0 bg-white/5" />
-            )}
+          {/* Left: Brand Identity Block with Warm Glow */}
+          <div className="md:w-1/2 h-[200px] md:h-auto relative bg-gradient-to-br from-[#18110E] to-[#0B0807] flex items-center justify-center overflow-hidden border-r border-white/5">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-roseGold-500/[0.04] blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/3 left-1/3 w-60 h-60 rounded-full bg-warmAmber-500/[0.03] blur-[80px] pointer-events-none" />
+            <span
+              className="text-[48px] sm:text-[64px] font-extrabold uppercase select-none tracking-widest text-transparent bg-clip-text bg-gradient-to-br from-roseGold-400/20 via-warmAmber-400/10 to-transparent"
+              style={{ fontFamily: '"Anton SC", sans-serif' }}
+            >
+              PRAISE LAB
+            </span>
           </div>
 
           {/* Right: Content */}

@@ -145,14 +145,14 @@ export function Navbar({ entranceComplete }: NavbarProps) {
 
             {/* Download button */}
             <motion.button
-              className="h-12 px-6 bg-white rounded-full flex items-center gap-2.5 cursor-pointer border-none"
-              whileHover={{ scale: 1.03, backgroundColor: '#e2e2e6' }}
+              className="h-12 px-6 bg-gradient-to-r from-warmAmber-200 to-roseGold-200 text-stone-900 rounded-full flex items-center gap-2.5 cursor-pointer border-none"
+              whileHover={{ scale: 1.03, filter: 'brightness(1.05)' }}
               whileTap={{ scale: 0.97 }}
               onMouseEnter={() => setDownloadHovered(true)}
               onMouseLeave={() => setDownloadHovered(false)}
             >
-              <i className="bi bi-tools text-black text-[16px]" />
-              <span className="text-black text-[16px] font-medium">
+              <i className="bi bi-tools text-stone-900 text-[16px]" />
+              <span className="text-stone-900 text-[16px] font-semibold">
                 <ScrambleText text="공사중" isHovered={downloadHovered} />
               </span>
             </motion.button>
@@ -251,11 +251,11 @@ export function Navbar({ entranceComplete }: NavbarProps) {
 
             {/* Download button */}
             <motion.button
-              className="h-9 px-3.5 bg-white rounded-full flex items-center gap-1.5 cursor-pointer border-none shrink-0"
+              className="h-9 px-3.5 bg-gradient-to-r from-warmAmber-200 to-roseGold-200 text-stone-900 rounded-full flex items-center gap-1.5 cursor-pointer border-none shrink-0"
               whileTap={{ scale: 0.95 }}
             >
-              <i className="bi bi-tools text-black text-[13px]" />
-              <span className="text-black text-[13px] font-medium">공사중</span>
+              <i className="bi bi-tools text-stone-900 text-[13px]" />
+              <span className="text-stone-900 text-[13px] font-semibold">공사중</span>
             </motion.button>
           </div>
         </div>

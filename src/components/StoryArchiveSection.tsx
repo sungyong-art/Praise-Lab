@@ -12,36 +12,36 @@ const THEME_MAP: Record<string, {
   borderColor: string;
 }> = {
   amber: {
-    accentColor: 'text-amber-400',
-    glowColor: 'shadow-amber-500/5 hover:shadow-amber-500/10',
-    bgGlow: 'from-amber-500/40 via-amber-500/10 to-transparent',
-    badgeBg: 'bg-amber-500/10 border-amber-500/20',
-    badgeText: 'text-amber-400',
-    borderColor: 'group-hover:border-amber-500/30',
+    accentColor: 'text-warmAmber-400',
+    glowColor: 'shadow-warmAmber-500/5 hover:shadow-warmAmber-500/10',
+    bgGlow: 'from-warmAmber-500/40 via-warmAmber-500/10 to-transparent',
+    badgeBg: 'bg-warmAmber-500/10 border-warmAmber-500/20',
+    badgeText: 'text-warmAmber-400',
+    borderColor: 'group-hover:border-warmAmber-500/30',
   },
   fuchsia: {
-    accentColor: 'text-fuchsia-400',
-    glowColor: 'shadow-fuchsia-500/5 hover:shadow-fuchsia-500/10',
-    bgGlow: 'from-fuchsia-500/40 via-fuchsia-500/10 to-transparent',
-    badgeBg: 'bg-fuchsia-500/10 border-fuchsia-500/20',
-    badgeText: 'text-fuchsia-400',
-    borderColor: 'group-hover:border-fuchsia-500/30',
+    accentColor: 'text-roseGold-400',
+    glowColor: 'shadow-roseGold-500/5 hover:shadow-roseGold-500/10',
+    bgGlow: 'from-roseGold-500/40 via-roseGold-500/10 to-transparent',
+    badgeBg: 'bg-roseGold-500/10 border-roseGold-500/20',
+    badgeText: 'text-roseGold-400',
+    borderColor: 'group-hover:border-roseGold-500/30',
   },
   cyan: {
-    accentColor: 'text-cyan-400',
-    glowColor: 'shadow-cyan-500/5 hover:shadow-cyan-500/10',
-    bgGlow: 'from-cyan-500/40 via-cyan-500/10 to-transparent',
-    badgeBg: 'bg-cyan-500/10 border-cyan-500/20',
-    badgeText: 'text-cyan-400',
-    borderColor: 'group-hover:border-cyan-500/30',
+    accentColor: 'text-warmAmber-300',
+    glowColor: 'shadow-warmAmber-400/5 hover:shadow-warmAmber-400/10',
+    bgGlow: 'from-warmAmber-400/40 via-warmAmber-400/10 to-transparent',
+    badgeBg: 'bg-warmAmber-400/10 border-warmAmber-400/20',
+    badgeText: 'text-warmAmber-300',
+    borderColor: 'group-hover:border-warmAmber-400/30',
   },
   rose: {
-    accentColor: 'text-rose-400',
-    glowColor: 'shadow-rose-500/5 hover:shadow-rose-500/10',
-    bgGlow: 'from-rose-500/40 via-rose-500/10 to-transparent',
-    badgeBg: 'bg-rose-500/10 border-rose-500/20',
-    badgeText: 'text-rose-400',
-    borderColor: 'group-hover:border-rose-500/30',
+    accentColor: 'text-roseGold-300',
+    glowColor: 'shadow-roseGold-400/5 hover:shadow-roseGold-400/10',
+    bgGlow: 'from-roseGold-400/40 via-roseGold-400/10 to-transparent',
+    badgeBg: 'bg-roseGold-400/10 border-roseGold-400/20',
+    badgeText: 'text-roseGold-300',
+    borderColor: 'group-hover:border-roseGold-400/30',
   },
 };
 
@@ -51,10 +51,10 @@ export function StoryArchiveSection() {
   if (!storyArchive) return null;
 
   return (
-    <section className="relative bg-[#010103] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
+    <section className="relative bg-[#0B0807] py-24 sm:py-32 px-4 sm:px-6 overflow-hidden border-b border-white/5">
       {/* 백그라운드 장식용 네온 원형 글로우 */}
-      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full bg-cyan-500/5 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-amber-500/5 blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full bg-roseGold-500/5 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-warmAmber-500/5 blur-[140px] pointer-events-none" />
       
       {/* 도트 그리드 장식 */}
       <div
@@ -69,7 +69,7 @@ export function StoryArchiveSection() {
         {/* 상단 헤더 */}
         <div className="text-center mb-16 sm:mb-20">
           <motion.p
-            className="text-[12px] sm:text-[13px] tracking-[0.25em] text-cyan-400 font-semibold uppercase mb-4"
+            className="text-[12px] sm:text-[13px] tracking-[0.25em] text-roseGold-400 font-semibold uppercase mb-4"
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
