@@ -13,7 +13,7 @@
 // ============================================================
 
 import React from 'react';
-import { PayPalButtons } from '@paypal/react-paypal-js';
+import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import type { PayPalProduct } from '../../lib/paypal';
 
 interface PayPalCheckoutButtonProps {
@@ -29,9 +29,26 @@ const PayPalCheckoutButton: React.FC<PayPalCheckoutButtonProps> = ({
   onError,
   onCancel,
 }) => {
+  const [{ isRejected, isPending }] = usePayPalScriptReducer();
+
+  if (isRejected) {
+    return (
+      <div className="w-full text-center py-2 px-3 bg-red-500/10 border border-red-500/25 rounded-lg text-red-400 text-[11.5px] leading-snug">
+        ⚠️ PayPal 결제 모듈 로드 실패<br/>
+        (Client ID가 만료되었거나 유효하지 않습니다.)
+      </div>
+    );
+  }
+
   return (
     <div className="w-full max-w-md mx-auto">
+      {isPending && (
+        <div className="w-full text-center py-3.5 bg-white/[0.02] border border-white/5 rounded-lg text-white/30 text-[12px] animate-pulse">
+          PayPal 로딩 중...
+        </div>
+      )}
       <PayPalButtons
+        forceReRender={[product.price, product.id]}
         style={{
           layout: 'vertical',
           color: 'gold',

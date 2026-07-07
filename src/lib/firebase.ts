@@ -20,6 +20,7 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || 'YOUR_PROJECT_ID.firebasestorage.app',
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || 'YOUR_SENDER_ID',
   appId: import.meta.env.VITE_FIREBASE_APP_ID || 'YOUR_APP_ID',
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || undefined,
 };
 
 // Initialize Firebase
@@ -31,4 +32,13 @@ export const auth = getAuth(app);
 // Firestore instance
 export const db = getFirestore(app);
 
+// Analytics (브라우저 환경에서만 동작하도록 지원)
+let analytics = null;
+if (typeof window !== 'undefined' && firebaseConfig.measurementId) {
+  import('firebase/analytics').then(({ getAnalytics }) => {
+    analytics = getAnalytics(app);
+  }).catch(err => console.error('Failed to initialize Analytics:', err));
+}
+
+export { analytics };
 export default app;

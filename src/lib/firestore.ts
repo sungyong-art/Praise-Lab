@@ -28,7 +28,18 @@ export const COLLECTIONS = {
   ORDERS: 'orders',
   SUBSCRIPTIONS: 'subscriptions',
   PRODUCTS: 'products',
+  REVIEWS: 'reviews',
 } as const;
+
+// ── Review Type ──
+export interface Review {
+  id: string;
+  userId: string;
+  displayName: string;
+  rating: number; // 1~5
+  content: string;
+  createdAt: Timestamp;
+}
 
 // ── Data Types ──
 
@@ -183,4 +194,26 @@ export async function getActiveSubscription(
 export async function deleteProduct(productId: string): Promise<void> {
   const ref = doc(db, COLLECTIONS.PRODUCTS, productId);
   await deleteDoc(ref);
+}
+
+// ── Review Helpers ──
+
+export async function createReview(
+  review: Omit<Review, 'createdAt'>
+): Promise<void> {
+  const ref = doc(db, COLLECTIONS.REVIEWS, review.id);
+  await setDoc(ref, {
+    ...review,
+    createdAt: serverTimestamp(),
+  });
+}
+
+export async function getReviews(): Promise<Review[]> {
+  const q = query(
+    collection(db, COLLECTIONS.REVIEWS),
+    orderBy('createdAt', 'desc'),
+    limit(50)
+  );
+  const snap = await getDocs(q);
+  return snap.docs.map((d) => d.data() as Review);
 }

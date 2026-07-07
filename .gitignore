@@ -43,3 +43,7 @@ out/
 .next/
 .nuxt/
 .svelte-kit/
+
+# Firebase & Build Local logs
+.firebase/
+build_error.log

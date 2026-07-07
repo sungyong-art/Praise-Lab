@@ -33,21 +33,21 @@ export interface TossProduct {
 
 export const TOSS_PRODUCTS: TossProduct[] = [
   {
-    id: 'connect-ai-basic-kr',
-    name: 'Connect AI Basic 라이센스',
-    price: 29900,
+    id: 'praise-reader-kr',
+    name: '독자 (Reader) 멤버십',
+    price: 9900,
     currency: 'KRW',
   },
   {
-    id: 'connect-ai-pro-kr',
-    name: 'Connect AI Pro 라이센스',
-    price: 99000,
+    id: 'praise-supporter-kr',
+    name: '응원자 (Supporter) 멤버십',
+    price: 29000,
     currency: 'KRW',
   },
   {
-    id: 'connect-ai-enterprise-kr',
-    name: 'Connect AI Enterprise 라이센스',
-    price: 299000,
+    id: 'praise-angel-kr',
+    name: '후원하기 — 선한 영향력 나누기',
+    price: 10000, // 자유후원 기본값 (사용자가 UI에서 조정)
     currency: 'KRW',
   },
 ];
