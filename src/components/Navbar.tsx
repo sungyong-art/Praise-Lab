@@ -151,9 +151,9 @@ export function Navbar({ entranceComplete }: NavbarProps) {
               onMouseEnter={() => setDownloadHovered(true)}
               onMouseLeave={() => setDownloadHovered(false)}
             >
-              <i className="bi bi-apple text-black text-[16px]" />
+              <i className="bi bi-tools text-black text-[16px]" />
               <span className="text-black text-[16px] font-medium">
-                <ScrambleText text="Download" isHovered={downloadHovered} />
+                <ScrambleText text="공사중" isHovered={downloadHovered} />
               </span>
             </motion.button>
           </div>
@@ -254,8 +254,8 @@ export function Navbar({ entranceComplete }: NavbarProps) {
               className="h-9 px-3.5 bg-white rounded-full flex items-center gap-1.5 cursor-pointer border-none shrink-0"
               whileTap={{ scale: 0.95 }}
             >
-              <i className="bi bi-apple text-black text-[13px]" />
-              <span className="text-black text-[13px] font-medium">Download</span>
+              <i className="bi bi-tools text-black text-[13px]" />
+              <span className="text-black text-[13px] font-medium">공사중</span>
             </motion.button>
           </div>
         </div>
